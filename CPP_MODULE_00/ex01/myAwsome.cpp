@@ -5,10 +5,19 @@
  * Author: Allal El Bakouri
  */
 
- #include <iostream>
+#include <iostream>
+#include <string>
 
  class Contact {
-    
+   std::string FirstName, LastName, NickName, DarkestSecret;
+   int   PhoneNumber;
+   Contact(string firstName, string lastName, string nickName, int phoneNumber, string darkestSecret) {
+      FirstName = firstName;
+      LastName = lastName;
+      NickName = nickName;
+      DarkestSecret = darkestSecret;
+      PhoneNumber = phoneNumber;
+   }
  public:
     int ADD () {
 
@@ -23,5 +32,5 @@
  }
 
  class PhoneBook {
-
+   
  }
