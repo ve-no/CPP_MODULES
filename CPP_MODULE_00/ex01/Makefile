@@ -4,17 +4,30 @@ CFLAGS = -std=c++98 -Wall -Wextra -Werror
 
 RM = rm -rf
 
-all:  $(NAME)
+define HEADER_M
+  __  __  _  _   __    _    _  ___  _____  __  __  ____ 
+ (  \/  )( \/ ) /__\  ( \/\/ )/ __)(  _  )(  \/  )( ___)
+  )    (  \  / /(__)\  )    ( \__ \ )(_)(  )    (  )__) 
+ (_/\/\_) (__)(__)(__)(__/\__)(___/(_____)(_/\/\_)(____)
+                
+endef
+export HEADER_M
 
+all: $(NAME) header_m 
+
+header_m:
+	@echo "\033[0;31m$$HEADER_M\033[0m\n"
 
 $(NAME):
-	c++ $(CFLAGS) myAwsome.cpp -o $(NAME)
+	@echo "\033[0;32m\n\nCompiling ..."
+	@c++ $(CFLAGS) myAwsome.cpp -o $(NAME)
+	@echo "\n\033[0mDone !"
 
 fclean:
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 clean:
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 re: fclean all
 
