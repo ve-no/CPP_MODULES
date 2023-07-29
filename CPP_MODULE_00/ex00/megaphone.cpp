@@ -1,9 +1,15 @@
-/*
- * Filename: /Users/ael-bako/1337_cursus/CPP_MODULES/CPP_Module_00/ex00/megaphone.cpp
- * Path: /Users/ael-bako/1337_cursus/CPP_MODULES/CPP_Module_00/ex00
- * Created Date: Thursday, July 20th 2023, 11:54:34 am
- * Author: Allal El Bakouri
- */
+
+/** * * * * * * * * * * * * * * * * * * * * *
+  *    _    __ ______       _   __ ____     *
+  *   | |  / // ____/      / | / // __ \    *
+  *   | | / // __/ ______ /  |/ // / / /    *
+  *   | |/ // /___/_____// /|  // /_/ /     *
+  *   |___//_____/      /_/ |_/ \____/      *
+  * * * * * * * * * * * * * * * * * * * * * *
+  * Created Date: July 20th 2023, 11:54 am  *
+  * Author: Allal El Bakouri (ael-bako)     *
+  * Github: ve-no                           *
+  * * * * * * * * * * * * * * * * * * * * * **/
 
 #include <iostream>
 
