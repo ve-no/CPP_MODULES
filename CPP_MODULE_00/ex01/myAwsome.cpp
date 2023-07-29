@@ -8,10 +8,9 @@
 #include <iostream>
 #include <string>
 
- class Contact {
-   std::string FirstName, LastName, NickName, DarkestSecret;
-   int   PhoneNumber;
-   Contact(string firstName, string lastName, string nickName, int phoneNumber, string darkestSecret) {
+class Contact {
+   std::string FirstName, LastName, NickName, DarkestSecret, PhoneNumber;
+   Contact(string firstName, string lastName, string nickName, string phoneNumber, string darkestSecret) {
       FirstName = firstName;
       LastName = lastName;
       NickName = nickName;
@@ -28,9 +27,9 @@
     void EXIT() {
 
     }
-
- }
+}
 
  class PhoneBook {
-   
+   Contact  contacts[8];
+
  }
