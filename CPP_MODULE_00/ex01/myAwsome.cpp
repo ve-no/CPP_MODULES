@@ -14,6 +14,7 @@
 
 #include <iostream>
 #include <string>
+#include <iomanip>
 
 class Contact {
    std::string FirstName, LastName, NickName, DarkestSecret, PhoneNumber;
@@ -34,31 +35,44 @@ class Contact {
         std::cout << "Phone Number: " << PhoneNumber << std::endl;
         std::cout << "Darkest Secret: " << DarkestSecret << std::endl;
     }
+
+    void displayShortInfo(int index) {
+      std::cout << "| " << index << std::setw(10) << "| " + FirstName << std::setw(10) << "| " + LastName << std::setw(10) << "| " + NickName << std::setw(10) << "| " + PhoneNumber<< std::setw(10) << "| " + DarkestSecret + "\n";
+    }
 };
 
 
  class PhoneBook {
    public:
-    Contact  contacts[8];
-     PhoneBook(){};
-   int ADD(Contact contact);
-
-
-       void Display()
-       {
-         contacts[0].displayFullInfo();
-       }
-   
+      Contact  contacts[8];
+      int current;
+      PhoneBook(){};
+      int ADD(Contact contact);
+      void Display();
+      void displayContacts();
+      void DisplayWithIndex(int index);
  };
 
-   int phonebook::ADD(Contact contact) {
-   int current = 0;
+   int PhoneBook::ADD(Contact contact) {
+      current++;
    if (current < 8)
       contacts[current++] = contact;
    else
       contacts[0] = contact;
    return (0);
  };
+
+   void PhoneBook::DisplayWithIndex(int index) {
+      contacts[index].displayFullInfo();
+   }
+   void PhoneBook::Display() {
+      std::cout << "|   Index   |  First Name |  Last Name  |  Nickname  |" << std::endl;
+      std::cout << "|-----------|------------|------------|------------|" << std::endl;
+      for (int i = 0; i < current; i++) {
+         contacts[i].displayShortInfo(i);
+      }
+      std::cout << std::endl;
+}
 
  int main()
  {
@@ -68,8 +82,7 @@ class Contact {
    {
       std::cout << "ENTER ADD or SEARCH or EXIT\n";
       std::cin >> cmd;
-      if (cmd == "ADD")
-      {
+      if (cmd == "ADD") {
          std::string firstName, lastName, nickName, phoneNumber, darkestSecret;
          std::cout << "Enter the first name\n";
          std::cin >> firstName;
@@ -83,8 +96,17 @@ class Contact {
          std::cin >> darkestSecret;
          Contact newContact(firstName, lastName, nickName, phoneNumber, darkestSecret);
          phonebook.ADD(newContact);
-         phonebook.Display();
+         // phonebook.Display();
       }
+      else if (cmd == "SEARCH") {
+         phonebook.Display();
+         int index;
+         std::cout << "Enter the index of the contact to display: ";
+         std::cin >> index;
+         phonebook.DisplayWithIndex(index);
+
+      }
+
    }
 
  }
