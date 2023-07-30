@@ -1,4 +1,3 @@
-
  /* * * * * * * * * * * * * * * * * * * * * **
  **    _    __ ______       _   __ ____     **
  **   | |  / // ____/      / | / // __ \    **
@@ -10,7 +9,6 @@
  ** Author: Allal El Bakouri (ael-bako)     **
  ** Github: ve-no                           **
  ** * * * * * * * * * * * * * * * * * * * * */
-
 
 #include <iostream>
 #include <string>
@@ -36,8 +34,13 @@ class Contact {
         std::cout << "Darkest Secret: " << DarkestSecret << std::endl;
     }
 
+      std::string subs(const std::string& str) {
+        return (str.length() <= 12) ? str : (str.substr(0, 11) + ".");
+    }
+   
+
     void displayShortInfo(int index) {
-      std::cout << "| " << index << std::setw(10) << "| " + FirstName << std::setw(10) << "| " + LastName << std::setw(10) << "| " + NickName << std::setw(10) << "| " + PhoneNumber<< std::setw(10) << "| " + DarkestSecret + "\n";
+      std::cout << "|" << std::setw(13)  << index   << "|" << std::setw(13)  << subs(FirstName) << "|" << std::setw(13) << subs(LastName)  << "|" << std::setw(13) << subs(NickName) << "|" << std::endl;
     }
 };
 
@@ -54,7 +57,7 @@ class Contact {
  };
 
    int PhoneBook::ADD(Contact contact) {
-      current++;
+      current = 0;
    if (current < 8)
       contacts[current++] = contact;
    else
@@ -66,8 +69,8 @@ class Contact {
       contacts[index].displayFullInfo();
    }
    void PhoneBook::Display() {
-      std::cout << "|   Index   |  First Name |  Last Name  |  Nickname  |" << std::endl;
-      std::cout << "|-----------|------------|------------|------------|" << std::endl;
+      std::cout << "|    Index    |  First Name |  Last Name  |  Nickname   |" << std::endl;
+      std::cout << "|-------------|-------------|-------------|-------------|" << std::endl;
       for (int i = 0; i < current; i++) {
          contacts[i].displayShortInfo(i);
       }
@@ -96,17 +99,18 @@ class Contact {
          std::cin >> darkestSecret;
          Contact newContact(firstName, lastName, nickName, phoneNumber, darkestSecret);
          phonebook.ADD(newContact);
-         // phonebook.Display();
       }
       else if (cmd == "SEARCH") {
          phonebook.Display();
          int index;
          std::cout << "Enter the index of the contact to display: ";
          std::cin >> index;
-         phonebook.DisplayWithIndex(index);
+         if (phonebook.ValidIndex(index))
+           phonebook.DisplayWithIndex(index);
+         else
+            std::cout "please enter a valid index\n";
 
       }
-
    }
 
  }
