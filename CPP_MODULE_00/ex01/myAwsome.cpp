@@ -13,6 +13,7 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <cstdlib>
 
 class Contact {
    std::string FirstName, LastName, NickName, DarkestSecret, PhoneNumber;
@@ -54,7 +55,7 @@ class Contact {
       void Display();
       void displayContacts();
       void DisplayWithIndex(int index);
-      int ValidIndex(int index);
+      int ValidIndex(std::string index);
  };
 
    int PhoneBook::ADD(Contact contact) {
@@ -67,18 +68,24 @@ class Contact {
  };
 
    void PhoneBook::DisplayWithIndex(int index) {
-      contacts[index].displayFullInfo();
+      contacts[index - 1].displayFullInfo();
    }
    void PhoneBook::Display() {
       std::cout << "|  Index   |First Name|Last Name | Nickname |" << std::endl;
       std::cout << "|----------|----------|----------|----------|" << std::endl;
       for (int i = 0; i < current; i++) {
-         contacts[i].displayShortInfo(i);
+         contacts[i].displayShortInfo(i + 1);
       }
       std::cout << std::endl;
 }
-   int PhoneBook::ValidIndex(int index) {
-      return index >= 0 && index < current;
+   int PhoneBook::ValidIndex(std::string index) {
+      int j;
+      for (size_t i = 0; i < index.length(); i++) {
+        if (!std::isdigit((char)index[i]))
+            return 0;
+      }
+      j = atoi(index.c_str());
+      return (j > 0 && j <= current) ? j : 0;
    }
 
  int main()
@@ -89,6 +96,8 @@ class Contact {
    {
       std::cout << "ENTER ADD or SEARCH or EXIT\n";
       std::cin >> cmd;
+      if (cmd.empty())
+         break ;
       if (cmd == "ADD") {
          std::string firstName, lastName, nickName, phoneNumber, darkestSecret;
          std::cout << "Enter the first name\n";
@@ -106,24 +115,28 @@ class Contact {
       }
       else if (cmd == "SEARCH") {
          phonebook.Display();
-         int index;
+         std::string index;
          std::cout << "Enter the index of the contact to display: ";
          std::cin >> index;
+         int i = phonebook.ValidIndex(index);
          // if (!phonebook.ValidIndex(index)) {
          //    while (!phonebook.ValidIndex(index)) {
-         //       std::cout << index;
          //       std::cout << "please enter a valid index\n";
          //       std::cin >> index;
          //    }
-         if (!index) {
-            index = 0;
-            continue ;
-         }
-         else if (phonebook.ValidIndex(index))
-            phonebook.DisplayWithIndex(index);
+         // }
+         // std::cout << phonebook.ValidIndex(index) << std::endl;
+         // break ;
+         // if (!phonebook.ValidIndex(index))
+         // {
+         //    std::cout << phonebook.ValidIndex(index) << std::endl;
+         //    break ;
+
+         // }
+         if (!i)
+            std::cout << "please enter a valid index\n";
          else
-            std::cout << "Invalid index. \n";
-         
+            phonebook.DisplayWithIndex(i);
       }
       else if (cmd == "EXIT")
          break ;
