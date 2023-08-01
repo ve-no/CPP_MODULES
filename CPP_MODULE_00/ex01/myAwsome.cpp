@@ -53,6 +53,10 @@ class Contact {
       void        displayFullInfo();
       void        displayShortInfo(int index);
       std::string getFname (void);
+      std::string getLname (void);
+      std::string getNeckName (void);
+      std::string getPnumber (void);
+      std::string getDarkestSecret (void);
       bool        setFname(void);
       bool        setLname(void);
       bool        setNeckName(void);
@@ -63,6 +67,18 @@ class Contact {
 
    std::string Contact::getFname (void) {
       return this->FirstName;
+   }
+      std::string Contact::getLname (void) {
+      return this->LastName;
+   }
+      std::string Contact::getNeckName (void) {
+      return this->NickName;
+   }
+      std::string Contact::getPnumber (void) {
+      return this->PhoneNumber;
+   }
+      std::string Contact::getDarkestSecret (void) {
+      return this->DarkestSecret;
    }
    
    void  Contact::displayFullInfo() {
