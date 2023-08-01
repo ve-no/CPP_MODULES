@@ -14,10 +14,32 @@
 #include <string>
 #include <iomanip>
 #include <cstdlib>
+#include "myAwsome.h"
+
+ bool isAllAlpha(const std::string &str)
+ {
+     for (size_t i = 0; i < str.length(); i++)
+         if (!std::isalpha(str[i]))
+             return false;
+     return true;
+}
+
+bool isAllDigits(const std::string& str) {
+    for (size_t i = 0; i < str.length(); i++)
+        if (!std::isdigit(str[i])) 
+            return false;
+    return true;
+}
+
+bool  setFname(std::string firstName) {
+   if (firstName.empty() || isAllAlpha(firstName)) {
+      return (false);
+   }
+   return (true);
+}
 
 class Contact {
    std::string FirstName, LastName, NickName, DarkestSecret, PhoneNumber;
-
    public:
       Contact(){};
       Contact(std::string firstName, std::string lastName, std::string nickName, std::string phoneNumber, std::string darkestSecret) {
@@ -27,24 +49,110 @@ class Contact {
          DarkestSecret = darkestSecret;
          PhoneNumber = phoneNumber;
       }
-       void displayFullInfo() {
-        std::cout << "First Name: " + FirstName << std::endl;
-        std::cout << "Last Name: " + LastName << std::endl;
-        std::cout << "Nickname: " << NickName << std::endl;
-        std::cout << "Phone Number: " << PhoneNumber << std::endl;
-        std::cout << "Darkest Secret: " << DarkestSecret << std::endl;
-    }
+      std::string ft_subs(std::string& str);
+      void        displayFullInfo();
+      void        displayShortInfo(int index);
+      std::string getFname (void);
+      bool        setFname(void);
+      bool        setLname(void);
+      bool        setNeckName(void);
+      bool        setPnumber(void);
+      bool        setDarkestSecret(void);
 
-      std::string subs(const std::string& str) {
-        return (str.length() <= 10) ? str : (str.substr(0, 9) + ".");
-    }
-   
-
-    void displayShortInfo(int index) {
-      std::cout << "|" << std::setw(10)  << index   << "|" << std::setw(10)  << subs(FirstName) << "|" << std::setw(10) << subs(LastName)  << "|" << std::setw(10) << subs(NickName) << "|" << std::endl;
-    }
 };
 
+   std::string Contact::getFname (void) {
+      return this->FirstName;
+   }
+   
+   void  Contact::displayFullInfo() {
+       std::cout << "First Name: " + FirstName << std::endl;
+       std::cout << "Last Name: " + LastName << std::endl;
+       std::cout << "Nickname: " << NickName << std::endl;
+       std::cout << "Phone Number: " << PhoneNumber << std::endl;
+       std::cout << "Darkest Secret: " << DarkestSecret << std::endl;
+   }
+   std::string Contact::ft_subs(std::string& str) {
+     return (str.length() <= 10) ? str : (str.substr(0, 9) + ".");
+   }
+
+   void  Contact::displayShortInfo(int index) {
+      std::cout << "|" << std::setw(10)  << index   << "|" << std::setw(10)  << ft_subs(FirstName) << "|" << std::setw(10) << ft_subs(LastName)  << "|" << std::setw(10) << ft_subs(NickName) << "|" << std::endl;
+   }
+
+   bool    Contact::setFname(void) {
+      std::string fName;
+      std::cout << "Enter the first name" << std::endl;
+      std::getline(std::cin, fName);
+      if (fName.empty() || !isAllAlpha(fName)) {
+         std::cout << "Field cannot be blank or not alpha !!" << std::endl;
+         return (false);
+      }
+      else
+      {
+         this->FirstName = fName;
+         return (true);
+      }
+   }
+
+   bool    Contact::setLname(void) {
+      std::string lName;
+      std::cout << "Enter the last name" << std::endl;
+      std::getline(std::cin, lName);
+      if (lName.empty() || !isAllAlpha(lName)) {
+         std::cout << "Field cannot be blank or not alpha !!" << std::endl;
+         return (false);
+      }
+      else
+      {
+         this->LastName = lName;
+         return (true);
+      }
+   }
+
+   bool    Contact::setNeckName(void) {
+      std::string neckName;
+      std::cout << "Enter the neck name" << std::endl;
+      std::getline(std::cin, neckName);
+      if (neckName.empty() || !isAllAlpha(neckName)) {
+         std::cout << "Field cannot be blank or not alpha !!" << std::endl;
+         return (false);
+      }
+      else
+      {
+         this->NickName = neckName;
+         return (true);
+      }
+   }
+
+   bool    Contact::setPnumber(void) {
+      std::string pNumber;
+      std::cout << "Enter the phone number" << std::endl;
+      std::getline(std::cin, pNumber);
+      if (pNumber.empty() || !isAllDigits(pNumber)) {
+         std::cout << "Field cannot be blank or not a number !!" << std::endl;
+         return (false);
+      }
+      else
+      {
+         this->PhoneNumber = pNumber;
+         return (true);
+      }
+   }
+   bool    Contact::setDarkestSecret(void) {
+      std::string dSecret;
+      std::cout << "Enter the phone number" << std::endl;
+      std::getline(std::cin, dSecret);
+      if (dSecret.empty() || !isAllDigits(dSecret)) {
+         std::cout << "Field cannot be blank or not a number !!" << std::endl;
+         return (false);
+      }
+      else
+      {
+         this->DarkestSecret = dSecret;
+         return (true);
+      }
+   }
 
  class PhoneBook {
    public:
@@ -95,23 +203,25 @@ class Contact {
    while (1)
    {
       std::cout << "ENTER ADD or SEARCH or EXIT\n";
-      std::cin >> cmd;
+      std::getline(std::cin, cmd);
       if (cmd.empty())
          break ;
       if (cmd == "ADD") {
          std::string firstName, lastName, nickName, phoneNumber, darkestSecret;
          std::cout << "Enter the first name\n";
-         std::cin >> firstName;
+         std::getline(std::cin, firstName);
          std::cout << "Enter the last name\n";
-         std::cin >> lastName;
+         std::getline(std::cin, lastName);
          std::cout << "Enter the nick name\n";
-         std::cin >> nickName;
+         std::getline(std::cin, nickName);
          std::cout << "Enter phone number\n";
-         std::cin >> phoneNumber;
+         std::getline(std::cin, phoneNumber);
          std::cout << "Enter the Darkest Secret\n";
-         std::cin >> darkestSecret;
+         std::getline(std::cin, darkestSecret);
          Contact newContact(firstName, lastName, nickName, phoneNumber, darkestSecret);
          phonebook.ADD(newContact);
+         std::cin.ignore();
+         std::cin.clear();
       }
       else if (cmd == "SEARCH") {
          phonebook.Display();
@@ -119,20 +229,6 @@ class Contact {
          std::cout << "Enter the index of the contact to display: ";
          std::cin >> index;
          int i = phonebook.ValidIndex(index);
-         // if (!phonebook.ValidIndex(index)) {
-         //    while (!phonebook.ValidIndex(index)) {
-         //       std::cout << "please enter a valid index\n";
-         //       std::cin >> index;
-         //    }
-         // }
-         // std::cout << phonebook.ValidIndex(index) << std::endl;
-         // break ;
-         // if (!phonebook.ValidIndex(index))
-         // {
-         //    std::cout << phonebook.ValidIndex(index) << std::endl;
-         //    break ;
-
-         // }
          if (!i)
             std::cout << "please enter a valid index\n";
          else
@@ -140,5 +236,6 @@ class Contact {
       }
       else if (cmd == "EXIT")
          break ;
+      cmd = "d";
    }
  }
