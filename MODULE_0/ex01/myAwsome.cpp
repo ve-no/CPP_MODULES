@@ -28,8 +28,7 @@ bool isAllDigits(const std::string& str) {
     return true;
 }
 
- int main()
- {
+ int main() {
    std::string cmd;
    PhoneBook phonebook;
    int current = 0;
@@ -51,13 +50,20 @@ bool isAllDigits(const std::string& str) {
          if (current)
             phonebook.Display(current);
          std::string index;
-         std::cout << "Enter the index of the contact to display: ";
+         if (current > 0)
+            std::cout << "Enter the index of the contact to display: between " << 1 << " and " << current << std::endl;
+         else {
+            std::cout << "there is no contact to display" << std::endl;
+            continue;
+         }
          std::cin >> index;
          std::cin.ignore();
          std::cin.clear();
          int i = phonebook.ValidIndex(index, current);
          if (!i)
-            std::cout << "please enter a valid index\n";
+            std::cout << "please enter an index between " << 1 << " and " << current << std::endl;
+         else if (!i)
+            std::cout << "its not a valid index"<< std::endl;
          else
             phonebook.DisplayWithIndex(i);
       }
