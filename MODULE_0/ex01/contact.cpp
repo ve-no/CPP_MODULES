@@ -1,3 +1,15 @@
+    /* * * * * * * * * * * * * * * * * * * * * **
+ **    _    __ ______       _   __ ____     **
+ **   | |  / // ____/      / | / // __ \    **
+ **   | | / // __/ ______ /  |/ // / / /    **
+ **   | |/ // /___/_____// /|  // /_/ /     **
+ **   |___//_____/      /_/ |_/ \____/      **
+ ** * * * * * * * * * * * * * * * * * * * * **
+ ** Created Date: July 30th 2023, 15:19     **
+ ** Author: Allal El Bakouri (ael-bako)     **
+ ** Github: ve-no                           **
+ ** * * * * * * * * * * * * * * * * * * * * */
+
    #include "contact.hpp"
 
    std::string Contact::getFname (void) {
@@ -116,7 +128,7 @@
          return (true);
       }
    }
-bool    Contact::newContact(void) {
+int    Contact::newContact(void) {
    std::string firstNameCopy = this->FirstName;
    std::string lastNameCopy = this->LastName;
    std::string phoneNumberCopy = this->PhoneNumber;
@@ -134,7 +146,7 @@ bool    Contact::newContact(void) {
       this->NickName = nickNameCopy;
       this->PhoneNumber = phoneNumberCopy;
       this->DarkestSecret = darkestSecretCopy;
-      return (false);
+      return (0);
    }
-   return (true);
+   return (1);
 }

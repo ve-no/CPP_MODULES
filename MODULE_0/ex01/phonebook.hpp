@@ -18,13 +18,12 @@
 class PhoneBook {
    public:
       Contact  contacts[8];
-      int current;
       PhoneBook(){};
-      void ADD(void);
-      void Display();
+      int  ADD(int current);
+      void Display(int current);
       void displayContacts();
       void DisplayWithIndex(int index);
-      int ValidIndex(std::string index);
+      int ValidIndex(std::string index, int current);
  };
 
 #endif

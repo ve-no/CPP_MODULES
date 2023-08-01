@@ -36,7 +36,7 @@ class Contact {
       bool              setNeckName(void);
       bool              setPnumber(void);
       bool              setDarkestSecret(void);
-      bool              newContact(void);
+      int              newContact(void);
 };
 bool isAllAlpha(const std::string &str);
 bool isAllDigits(const std::string& str);
