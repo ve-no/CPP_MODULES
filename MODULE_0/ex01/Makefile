@@ -1,15 +1,3 @@
-
-
-NAME = myAwsome
-
-SRC	 = ./phonebook.cpp	 ./contact.cpp ./myAwsome.cpp
-
-CPPFLAGS = -Wall -Wextra -Werror
-
-OBJ  = $(SRC:.cpp=.o)
-
-RM = rm -rf
-
 define HEADER_M
   __  __  _  _   __    _    _  ___  _____  __  __  ____ 
  (  \/  )( \/ ) /__\  ( \/\/ )/ __)(  _  )(  \/  )( ___)
@@ -19,21 +7,42 @@ define HEADER_M
 endef
 export HEADER_M
 
+NAME = myAwsome
+
+SRC	 = phonebook.cpp contact.cpp myAwsome.cpp
+
+OBJ_PATH 	= objs/
+
+CPPFLAGS = -Wall -Wextra -Werror
+
+OBJ  = $(SRC:.cpp=.o)
+
+OBJS	= $(addprefix $(OBJ_PATH), $(OBJ))
+
+RM = rm -rf
+
 all: $(NAME) header_m 
+
+$(OBJ_PATH)%.o: %.cpp
+	@c++ $(CPPFLAGS) -c $< -o $@
+
+$(OBJ_PATH):
+	@mkdir $(OBJ_PATH)
+
 
 header_m:
 	@echo "\033[0;31m$$HEADER_M\033[0m\n"
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJS)
 	@echo "\033[0;32m\n\nCompiling ..."
-	@c++ $(CPPFLAGS) -std=c++98 $(OBJ) -o $(NAME)
+	@c++ $(CPPFLAGS) -std=c++98 $(OBJS) -o $(NAME)
 	@echo "\n\033[0mDone !"
 
 clean:
-	@$(RM) $(NAME)
+	@$(RM) $(OBJS)
 
 fclean: clean
-	@$(RM) *.o
+	@$(RM) $(NAME)
 
 re: fclean all
 
