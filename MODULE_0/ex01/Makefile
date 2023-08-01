@@ -1,6 +1,12 @@
+
+
 NAME = myAwsome
 
-CFLAGS = -std=c++98 -Wall -Wextra -Werror
+SRC	 = ./phonebook.cpp	 ./contact.cpp ./myAwsome.cpp
+
+CPPFLAGS = -Wall -Wextra -Werror
+
+OBJ  = $(SRC:.cpp=.o)
 
 RM = rm -rf
 
@@ -18,13 +24,13 @@ all: $(NAME) header_m
 header_m:
 	@echo "\033[0;31m$$HEADER_M\033[0m\n"
 
-$(NAME):
+$(NAME): $(OBJ)
 	@echo "\033[0;32m\n\nCompiling ..."
-	@c++ $(CFLAGS) myAwsome.cpp -o $(NAME)
+	@c++ $(CPPFLAGS) -std=c++98 $(OBJ) -o $(NAME)
 	@echo "\n\033[0mDone !"
 
 fclean:
-	@$(RM) $(NAME)
+	@$(RM) *.o
 
 clean:
 	@$(RM) $(NAME)
