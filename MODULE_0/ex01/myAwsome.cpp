@@ -212,6 +212,7 @@ class Contact {
       return (j > 0 && j <= current) ? j : 0;
    }
 
+
  int main()
  {
    std::string cmd;
@@ -220,9 +221,11 @@ class Contact {
    {
       std::cout << "ENTER ADD or SEARCH or EXIT\n";
       std::getline(std::cin, cmd);
-      if (cmd.empty())
-         break ;
-      if (cmd == "ADD") {
+      if (cmd.empty()) {
+         clearerr(stdin);
+         std::cin.clear();
+      }
+      else if (cmd == "ADD") {
          std::string firstName, lastName, nickName, phoneNumber, darkestSecret;
          std::cout << "Enter the first name\n";
          std::getline(std::cin, firstName);
@@ -252,6 +255,7 @@ class Contact {
       }
       else if (cmd == "EXIT")
          break ;
-      cmd = "d";
+      else
+         std::cout << "invalid choise" << std::endl;
    }
  }
