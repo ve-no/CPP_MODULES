@@ -29,11 +29,11 @@ $(NAME): $(OBJ)
 	@c++ $(CPPFLAGS) -std=c++98 $(OBJ) -o $(NAME)
 	@echo "\n\033[0mDone !"
 
-fclean:
-	@$(RM) *.o
-
 clean:
 	@$(RM) $(NAME)
+
+fclean: clean
+	@$(RM) *.o
 
 re: fclean all
 
