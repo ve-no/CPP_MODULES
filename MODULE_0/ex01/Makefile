@@ -11,8 +11,6 @@ NAME = myAwsome
 
 SRC	 = phonebook.cpp contact.cpp myAwsome.cpp
 
-OBJ_PATH 	= objs/
-
 CPPFLAGS = -Wall -Wextra -Werror
 
 RM = rm -rf

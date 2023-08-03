@@ -40,5 +40,6 @@ class Contact {
 };
 bool isAllAlpha(const std::string &str);
 bool isAllDigits(const std::string& str);
+void getNextLine(std::string print, std::string* input);
 
 #endif

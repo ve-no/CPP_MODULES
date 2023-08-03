@@ -12,9 +12,9 @@
 
    #include "contact.hpp"
 
-   void getNextLine(std::string print, std::string input) {
+   void getNextLine(std::string print, std::string* input) {
       std::cout << print << ":\t";
-      std::getline(std::cin, input);
+      std::getline(std::cin, *input);
       if (std::cin.eof())
         exit(1);
    }
@@ -65,7 +65,7 @@
    void    Contact::setFname(void) {
       std::string fName;
       while (fName.empty() || !isAllAlpha(fName)) {
-         getNextLine("Enter the first name ", fName);
+         getNextLine("Enter the first name ", &fName);
          if (!isAllAlpha(fName))
             std::cout << "name most be all alpha" << std::endl;
       }
@@ -75,7 +75,7 @@
    void    Contact::setLname(void) {
       std::string lName;
       while (lName.empty() || !isAllAlpha(lName)) {
-         getNextLine("Enter the last name ", lName);
+         getNextLine("Enter the last name ", &lName);
          if (!isAllAlpha(lName))
             std::cout << "name most be all alpha" << std::endl;
       }
@@ -85,7 +85,7 @@
    void    Contact::setNeckName(void) {
       std::string neckName;
       while (neckName.empty()) {
-         getNextLine("Enter the neck name ", neckName);
+         getNextLine("Enter the neck name ", &neckName);
       }
       this->NickName = neckName;
    }
@@ -93,7 +93,7 @@
    void    Contact::setPnumber(void) {
       std::string pNumber;
       while (pNumber.empty() || !isAllDigits(pNumber)) {
-         getNextLine("Enter the phone number ", pNumber);
+         getNextLine("Enter the phone number ", &pNumber);
          if (!isAllDigits(pNumber))
             std::cout << "name most be all number" << std::endl;
       }
@@ -102,7 +102,7 @@
    void    Contact::setDarkestSecret(void) {
       std::string dSecret;
       while (dSecret.empty()) {
-         getNextLine("Enter the darkest Secret ", dSecret);
+         getNextLine("Enter the darkest Secret ", &dSecret);
       }
       this->DarkestSecret = dSecret;
    }
