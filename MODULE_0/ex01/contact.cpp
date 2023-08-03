@@ -1,4 +1,4 @@
-    /* * * * * * * * * * * * * * * * * * * * * **
+     /* * * * * * * * * * * * * * * * * * * * * **
  **    _    __ ______       _   __ ____     **
  **   | |  / // ____/      / | / // __ \    **
  **   | | / // __/ ______ /  |/ // / / /    **
@@ -11,6 +11,13 @@
  ** * * * * * * * * * * * * * * * * * * * * */
 
    #include "contact.hpp"
+
+   void getNextLine(std::string print, std::string input) {
+      std::cout << print << ":\t";
+      std::getline(std::cin, input);
+      if (std::cin.eof())
+        exit(1);
+   }
 
    std::string Contact::getFname (void) {
       return this->FirstName;
@@ -55,98 +62,55 @@
       std::cout << "|" << std::setw(10)  << index   << "|" << std::setw(10)  << ft_subs(FirstName) << "|" << std::setw(10) << ft_subs(LastName)  << "|" << std::setw(10) << ft_subs(NickName) << "|" << std::endl;
    }
 
-   bool    Contact::setFname(void) {
+   void    Contact::setFname(void) {
       std::string fName;
-      std::cout << "Enter the first name" << std::endl;
-      std::getline(std::cin, fName);
-      if (fName.empty() || !isAllAlpha(fName)) {
-         std::cout << "Field cannot be blank or not alpha !!" << std::endl;
-         return (false);
+      while (fName.empty() || !isAllAlpha(fName)) {
+         getNextLine("Enter the first name ", fName);
+         if (!isAllAlpha(fName))
+            std::cout << "name most be all alpha" << std::endl;
       }
-      else
-      {
-         this->FirstName = fName;
-         return (true);
-      }
+      this->FirstName = fName;
    }
 
-   bool    Contact::setLname(void) {
+   void    Contact::setLname(void) {
       std::string lName;
-      std::cout << "Enter the last name" << std::endl;
-      std::getline(std::cin, lName);
-      if (lName.empty() || !isAllAlpha(lName)) {
-         std::cout << "Field cannot be blank or not alpha !!" << std::endl;
-         return (false);
+      while (lName.empty() || !isAllAlpha(lName)) {
+         getNextLine("Enter the last name ", lName);
+         if (!isAllAlpha(lName))
+            std::cout << "name most be all alpha" << std::endl;
       }
-      else
-      {
-         this->LastName = lName;
-         return (true);
-      }
+      this->LastName = lName;
    }
 
-   bool    Contact::setNeckName(void) {
+   void    Contact::setNeckName(void) {
       std::string neckName;
-      std::cout << "Enter the neck name" << std::endl;
-      std::getline(std::cin, neckName);
-      if (neckName.empty() || !isAllAlpha(neckName)) {
-         std::cout << "Field cannot be blank or not alpha !!" << std::endl;
-         return (false);
+      while (neckName.empty()) {
+         getNextLine("Enter the neck name ", neckName);
       }
-      else
-      {
-         this->NickName = neckName;
-         return (true);
-      }
+      this->NickName = neckName;
    }
 
-   bool    Contact::setPnumber(void) {
+   void    Contact::setPnumber(void) {
       std::string pNumber;
-      std::cout << "Enter the phone number" << std::endl;
-      std::getline(std::cin, pNumber);
-      if (pNumber.empty() || !isAllDigits(pNumber)) {
-         std::cout << "Field cannot be blank or not a number !!" << std::endl;
-         return (false);
+      while (pNumber.empty() || !isAllDigits(pNumber)) {
+         getNextLine("Enter the phone number ", pNumber);
+         if (!isAllDigits(pNumber))
+            std::cout << "name most be all number" << std::endl;
       }
-      else
-      {
-         this->PhoneNumber = pNumber;
-         return (true);
-      }
+      this->PhoneNumber = pNumber;
    }
-   bool    Contact::setDarkestSecret(void) {
+   void    Contact::setDarkestSecret(void) {
       std::string dSecret;
-      std::cout << "Enter the darkest Secret" << std::endl;
-      std::getline(std::cin, dSecret);
-      if (dSecret.empty()) {
-         std::cout << "Field cannot be blank!!" << std::endl;
-         return (false);
+      while (dSecret.empty()) {
+         getNextLine("Enter the darkest Secret ", dSecret);
       }
-      else
-      {
-         this->DarkestSecret = dSecret;
-         return (true);
-      }
+      this->DarkestSecret = dSecret;
    }
 int    Contact::newContact(void) {
-   std::string firstNameCopy = this->FirstName;
-   std::string lastNameCopy = this->LastName;
-   std::string phoneNumberCopy = this->PhoneNumber;
-   std::string darkestSecretCopy = this->DarkestSecret;
-   std::string nickNameCopy = this->NickName;
-
-   if (   !this->setFname()
-      or !this->setLname()
-      or !this->setNeckName()
-      or !this->setPnumber()
-      or !this->setDarkestSecret())
-   {
-      this->FirstName = firstNameCopy;
-      this->LastName = lastNameCopy;
-      this->NickName = nickNameCopy;
-      this->PhoneNumber = phoneNumberCopy;
-      this->DarkestSecret = darkestSecretCopy;
-      return (0);
-   }
-   return (1);
+      this->setFname();
+      this->setLname();
+      this->setNeckName();
+      this->setPnumber();
+      this->setDarkestSecret();
+      return (1);
 }
