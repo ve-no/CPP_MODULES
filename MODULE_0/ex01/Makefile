@@ -15,20 +15,9 @@ OBJ_PATH 	= objs/
 
 CPPFLAGS = -Wall -Wextra -Werror
 
-# OBJ  = $(SRC:.cpp=.o)
-
-# OBJS	= $(addprefix $(OBJ_PATH), $(OBJ))
-
 RM = rm -rf
 
 all: $(NAME) header_m 
-
-# $(OBJ_PATH)%.o: %.cpp
-# 	@c++ $(CPPFLAGS) -c $< -o $@
-
-# $(OBJ_PATH):
-# 	@mkdir $(OBJ_PATH)
-
 
 header_m:
 	@echo "\033[0;31m$$HEADER_M\033[0m\n"
