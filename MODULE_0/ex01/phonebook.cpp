@@ -26,18 +26,18 @@
    void PhoneBook::Display(int current) {
       std::cout << "|  Index   |First Name|Last Name | Nickname |" << std::endl;
       std::cout << "|----------|----------|----------|----------|" << std::endl;
-      for (int i = 0; i < current; i++) {
+      int j = (current > 8) ? 8 : current;
+      for (int i = 0; i < j; i++) {
          contacts[i].displayShortInfo(i + 1);
       }
       std::cout << std::endl;
 }
    int PhoneBook::ValidIndex(std::string index, int current) {
       int j;
-      for (size_t i = 0; i < index.length(); i++) {
-        if (!std::isdigit((char)index[i]))
+        if (!std::isdigit((char)index[0]))
             return 0;
-      }
       j = atoi(index.c_str());
+      current = (current > 8) ? 8 : current;
       return (j > 0 && j <= current) ? j : 0;
    }
 

@@ -19,6 +19,12 @@
 #include <cstdlib>
 #include <cstdio>
 
+   #define getNextLine(print, input)\
+      std::cout << print << ":\t";\
+      std::getline(std::cin, input);\
+      if (std::cin.eof())\
+        exit(1);\
+
 class Contact {
    private:
       std::string FirstName, LastName, NickName, DarkestSecret, PhoneNumber;
@@ -40,6 +46,6 @@ class Contact {
 };
 bool isAllAlpha(const std::string &str);
 bool isAllDigits(const std::string& str);
-void getNextLine(std::string print, std::string* input);
+// void getNextLine(std::string print, std::string* input);
 
 #endif
