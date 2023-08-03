@@ -34,8 +34,7 @@ bool isAllDigits(const std::string& str) {
    int current = 0;
    while (1)
    {
-      std::cout << "ENTER ADD or SEARCH or EXIT\n";
-      std::getline(std::cin, cmd);
+      getNextLine("ENTER ADD or SEARCH or EXIT", &cmd);
       if (cmd.empty()) {
          clearerr(stdin);
          std::cin.clear();
@@ -43,37 +42,23 @@ bool isAllDigits(const std::string& str) {
       else if (cmd == "ADD") {
          if (phonebook.ADD(current))
             current++;
-         std::cin.ignore();
-         std::cin.clear();
       }
       else if (cmd == "SEARCH") {
          if (current)
             phonebook.Display(current);
          std::string index;
-         if (current > 0)
-            std::cout << "Enter the index of the contact to display: between " << 1 << " and " << current << std::endl;
-         else {
+         if (current == 0)
             std::cout << "there is no contact to display" << std::endl;
-            continue;
+            
+         else {
+            while (!phonebook.ValidIndex(index, current))
+               getNextLine("please enter an index between " + std::to_string(1) + " and " + std::to_string(current), &index);
+            phonebook.DisplayWithIndex(std::stoi(index));
          }
-         std::cin >> index;
-         std::cin.ignore();
-         std::cin.clear();
-         int i = phonebook.ValidIndex(index, current);
-         if (!i)
-            std::cout << "please enter an index between " << 1 << " and " << current << std::endl;
-         else if (!i)
-            std::cout << "its not a valid index"<< std::endl;
-         else
-            phonebook.DisplayWithIndex(i);
       }
       else if (cmd == "EXIT")
          break ;
       else
-      {
-         clearerr(stdin);
-         std::cin.clear();
-         std::cout << ":\tinvalid choise" << std::endl;
-      }
+         std::cout << cmd << ":\tinvalid choise" << std::endl;
    }
  }
