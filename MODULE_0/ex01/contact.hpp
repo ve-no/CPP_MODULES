@@ -28,6 +28,7 @@
 class Contact {
    private:
       std::string FirstName, LastName, NickName, DarkestSecret, PhoneNumber;
+
    public:
       std::string       ft_subs(std::string& str);
       void              displayFullInfo();
@@ -46,6 +47,5 @@ class Contact {
 };
 bool isAllAlpha(const std::string &str);
 bool isAllDigits(const std::string& str);
-// void getNextLine(std::string print, std::string* input);
 
 #endif
