@@ -28,19 +28,19 @@
 class Contact {
    private:
       std::string FirstName, LastName, NickName, DarkestSecret, PhoneNumber;
-
    public:
+      Contact();
       std::string       ft_subs(std::string& str);
       void              displayFullInfo();
       void              displayShortInfo(int index);
-      std::string       getFname (void);
-      std::string       getLname (void);
-      std::string       getNeckName (void);
-      std::string       getPnumber (void);
+      // std::string       getFname (void);
+      // std::string       getLname (void);
+      // std::string       getnickName (void);
+      // std::string       getPnumber (void);
       std::string       getDarkestSecret (void);
       void              setFname(void);
       void              setLname(void);
-      void              setNeckName(void);
+      void              setnickName(void);
       void              setPnumber(void);
       void              setDarkestSecret(void);
       int               newContact(void);

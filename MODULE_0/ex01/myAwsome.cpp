@@ -34,7 +34,7 @@ bool isAllDigits(const std::string& str) {
    int current = 0;
    while (1)
    {
-      getNextLine("ENTER ADD or SEARCH or EXIT", cmd);
+      getNextLine("ENTER ATGJHKJLK:LDD or SEARCH or EXIT", cmd);
       if (cmd.empty()) {
          clearerr(stdin);
          std::cin.clear();

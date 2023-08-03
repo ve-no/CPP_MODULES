@@ -1,4 +1,3 @@
-   
  /* * * * * * * * * * * * * * * * * * * * * **
  **    _    __ ______       _   __ ____     **
  **   | |  / // ____/      / | / // __ \    **
@@ -11,16 +10,18 @@
  ** Github: ve-no                           **
  ** * * * * * * * * * * * * * * * * * * * * */
 
-   #include "contact.hpp"
-   #include "phonebook.hpp"
-   int  PhoneBook::ADD(int current) {
-      return this->contacts[current % 8].newContact();
- };
+#include "contact.hpp"
+#include "phonebook.hpp"
 
-   void PhoneBook::DisplayWithIndex(int index) {
-      contacts[index].displayFullInfo();
-   }
-   void PhoneBook::Display(int current) {
+int  PhoneBook::ADD(int current) {
+      return this->contacts[current % 8].newContact();
+}
+
+void PhoneBook::DisplayWithIndex(int index) {
+   contacts[index].displayFullInfo();
+}
+
+void PhoneBook::Display(int current) {
       std::cout << "|  Index   |First Name|Last Name | Nickname |" << std::endl;
       std::cout << "|----------|----------|----------|----------|" << std::endl;
       int j = (current > 7) ? 7 : current;
@@ -29,12 +30,12 @@
       }
       std::cout << std::endl;
 }
-   int PhoneBook::ValidIndex(std::string index, int current) {
-      int j;
-        if (!std::isdigit((char)index[0]))
-            return 0;
-      j = atoi(index.c_str());
-      current = (current > 7) ? 7 : current;
-      return (j >= 0 && j < current) ? j - 1 : 0;
-   }
 
+int PhoneBook::ValidIndex(std::string index, int current) {
+   int j;
+     if (!std::isdigit((char)index[0]))
+         return 0;
+   j = atoi(index.c_str());
+   current = (current > 7) ? 7 : current;
+   return (j >= 0 && j < current) ? j - 1 : 0;
+}

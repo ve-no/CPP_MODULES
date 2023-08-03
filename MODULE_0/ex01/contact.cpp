@@ -1,4 +1,4 @@
-     /* * * * * * * * * * * * * * * * * * * * * **
+ /* * * * * * * * * * * * * * * * * * * * * **
  **    _    __ ______       _   __ ____     **
  **   | |  / // ____/      / | / // __ \    **
  **   | | / // __/ ______ /  |/ // / / /    **
@@ -12,37 +12,7 @@
 
    #include "contact.hpp"
 
-   // void getNextLine(std::string print, std::string* input) {
-   //    std::cout << print << ":\t";
-   //    std::getline(std::cin, *input);
-   //    if (std::cin.eof())
-   //      exit(1);
-   // }
-
-   std::string Contact::getFname (void) {
-      return this->FirstName;
-   }
-      std::string Contact::getLname (void) {
-      return this->LastName;
-   }
-      std::string Contact::getNeckName (void) {
-      return this->NickName;
-   }
-      std::string Contact::getPnumber (void) {
-      return this->PhoneNumber;
-   }
-      std::string Contact::getDarkestSecret (void) {
-      return this->DarkestSecret;
-   }
-
-      void  Contact::displayFullInfo() {
-      std::string FirstName, LastName, NickName, PhoneNumber, DarkestSecret;
-
-      FirstName = this->getFname();
-      LastName = this->getLname();
-      NickName = this->getNeckName();
-      PhoneNumber = this->getPnumber();
-      DarkestSecret = this->getDarkestSecret();
+   void  Contact::displayFullInfo() {
       std::cout << "First Name: " + FirstName << std::endl;
       std::cout << "Last Name: " + LastName << std::endl;
       std::cout << "Nickname: " << NickName << std::endl;
@@ -54,11 +24,6 @@
    }
 
    void  Contact::displayShortInfo(int index) {
-      std::string FirstName, LastName, NickName;
-
-      FirstName = this->getFname();
-      LastName = this->getLname();
-      NickName = this->getNeckName();
       std::cout << "|" << std::setw(10)  << index   << "|" << std::setw(10)  << ft_subs(FirstName) << "|" << std::setw(10) << ft_subs(LastName)  << "|" << std::setw(10) << ft_subs(NickName) << "|" << std::endl;
    }
 
@@ -69,7 +34,7 @@
          if (!isAllAlpha(fName))
             std::cout << "name most be all alpha" << std::endl;
       }
-      this->FirstName = fName;
+      FirstName = fName;
    }
 
    void    Contact::setLname(void) {
@@ -79,15 +44,15 @@
          if (!isAllAlpha(lName))
             std::cout << "name most be all alpha" << std::endl;
       }
-      this->LastName = lName;
+      LastName = lName;
    }
 
-   void    Contact::setNeckName(void) {
-      std::string neckName;
-      while (neckName.empty()) {
-         getNextLine("Enter the neck name ", neckName);
+   void    Contact::setnickName(void) {
+      std::string nickName;
+      while (nickName.empty()) {
+         getNextLine("Enter the neck name ", nickName);
       }
-      this->NickName = neckName;
+      NickName = nickName;
    }
 
    void    Contact::setPnumber(void) {
@@ -97,20 +62,20 @@
          if (!isAllDigits(pNumber))
             std::cout << "name most be all number" << std::endl;
       }
-      this->PhoneNumber = pNumber;
+      PhoneNumber = pNumber;
    }
    void    Contact::setDarkestSecret(void) {
       std::string dSecret;
       while (dSecret.empty()) {
          getNextLine("Enter the darkest Secret ", dSecret);
       }
-      this->DarkestSecret = dSecret;
+      DarkestSecret = dSecret;
    }
 int    Contact::newContact(void) {
-      this->setFname();
-      this->setLname();
-      this->setNeckName();
-      this->setPnumber();
-      this->setDarkestSecret();
+      setFname();
+      setLname();
+      setnickName();
+      setPnumber();
+      setDarkestSecret();
       return (1);
 }
