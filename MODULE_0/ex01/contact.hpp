@@ -31,12 +31,12 @@ class Contact {
       std::string       getNeckName (void);
       std::string       getPnumber (void);
       std::string       getDarkestSecret (void);
-      bool              setFname(void);
-      bool              setLname(void);
-      bool              setNeckName(void);
-      bool              setPnumber(void);
-      bool              setDarkestSecret(void);
-      int              newContact(void);
+      void              setFname(void);
+      void              setLname(void);
+      void              setNeckName(void);
+      void              setPnumber(void);
+      void              setDarkestSecret(void);
+      int               newContact(void);
 };
 bool isAllAlpha(const std::string &str);
 bool isAllDigits(const std::string& str);

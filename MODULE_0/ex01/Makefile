@@ -15,31 +15,31 @@ OBJ_PATH 	= objs/
 
 CPPFLAGS = -Wall -Wextra -Werror
 
-OBJ  = $(SRC:.cpp=.o)
+# OBJ  = $(SRC:.cpp=.o)
 
-OBJS	= $(addprefix $(OBJ_PATH), $(OBJ))
+# OBJS	= $(addprefix $(OBJ_PATH), $(OBJ))
 
 RM = rm -rf
 
 all: $(NAME) header_m 
 
-$(OBJ_PATH)%.o: %.cpp
-	@c++ $(CPPFLAGS) -c $< -o $@
+# $(OBJ_PATH)%.o: %.cpp
+# 	@c++ $(CPPFLAGS) -c $< -o $@
 
-$(OBJ_PATH):
-	@mkdir $(OBJ_PATH)
+# $(OBJ_PATH):
+# 	@mkdir $(OBJ_PATH)
 
 
 header_m:
 	@echo "\033[0;31m$$HEADER_M\033[0m\n"
 
-$(NAME): $(OBJS)
+$(NAME):
 	@echo "\033[0;32m\n\nCompiling ..."
-	@c++ $(CPPFLAGS) -std=c++98 $(OBJS) -o $(NAME)
+	@c++ $(CPPFLAGS) -std=c++98 $(SRC) -o $(NAME)
 	@echo "\n\033[0mDone !"
 
 clean:
-	@$(RM) $(OBJS)
+	@$(RM) $(NAME)
 
 fclean: clean
 	@$(RM) $(NAME)
