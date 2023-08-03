@@ -51,10 +51,10 @@ bool isAllDigits(const std::string& str) {
             std::cout << "there is no contact to display" << std::endl;
             
          else {
-            int j = (current > 8) ? 8 : current;
+            int j = (current > 7) ? 7 : current;
             while (!phonebook.ValidIndex(index, current)) {
-               std::cout << "please enter an index between 1 and ";
-               getNextLine(j, index);
+               std::cout << "please enter an index between 0 and ";
+               getNextLine(j - 1, index);
             }
             phonebook.DisplayWithIndex(std::atoi(index.c_str()));
          }
