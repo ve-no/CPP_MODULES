@@ -34,7 +34,7 @@ bool isAllDigits(const std::string& str) {
    int current = 0;
    while (1)
    {
-      getNextLine("ENTER ATGJHKJLK:LDD or SEARCH or EXIT", cmd);
+      getNextLine("ENTER ADD or SEARCH or EXIT", cmd);
       if (cmd.empty()) {
          clearerr(stdin);
          std::cin.clear();
@@ -51,7 +51,7 @@ bool isAllDigits(const std::string& str) {
             std::cout << "there is no contact to display" << std::endl;
             
          else {
-            int j = (current > 7) ? 7 : current;
+            int j = (current > 7) ? 8 : current;
             while (!phonebook.ValidIndex(index, current)) {
                std::cout << "please enter an index between 0 and ";
                getNextLine(j - 1, index);

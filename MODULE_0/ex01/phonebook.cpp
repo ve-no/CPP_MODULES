@@ -24,7 +24,7 @@ void PhoneBook::DisplayWithIndex(int index) {
 void PhoneBook::Display(int current) {
       std::cout << "|  Index   |First Name|Last Name | Nickname |" << std::endl;
       std::cout << "|----------|----------|----------|----------|" << std::endl;
-      int j = (current > 7) ? 7 : current;
+      int j = (current > 7) ? 8 : current;
       for (int i = 0; i < j; i++) {
          contacts[i].displayShortInfo(i);
       }
@@ -36,6 +36,6 @@ int PhoneBook::ValidIndex(std::string index, int current) {
      if (!std::isdigit((char)index[0]))
          return 0;
    j = atoi(index.c_str());
-   current = (current > 7) ? 7 : current;
-   return (j >= 0 && j < current) ? j - 1 : 0;
+   current = (current > 7) ? 8 : current;
+   return (j >= 0 && j < current);
 }

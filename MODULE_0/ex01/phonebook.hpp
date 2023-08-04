@@ -21,7 +21,6 @@ class PhoneBook {
       PhoneBook(){};
       int  ADD(int current);
       void Display(int current);
-      void displayContacts();
       void DisplayWithIndex(int index);
       int ValidIndex(std::string index, int current);
  };
