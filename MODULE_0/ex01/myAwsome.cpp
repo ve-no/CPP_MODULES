@@ -62,6 +62,6 @@ bool isAllDigits(const std::string& str) {
       else if (cmd == "EXIT")
          break ;
       else
-         std::cout << cmd << ":\tinvalid choise" << std::endl;
+         std::cout << cmd << ":\tinvalid choice" << std::endl;
    }
  }
