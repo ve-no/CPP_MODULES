@@ -1,5 +1,9 @@
-MODULE_0/.DS_Store
+*.DS_Store
 .vscode/settings.json
 .vscode/settings.json
 MODULE_0/ex01/myAwsome
 .vscode/settings.json
+MODULE_0/ex01/myAwsome
+MODULE_0/ex01/myAwsome
+*a.out
+*.o
