@@ -9,7 +9,7 @@ class Zombie {
         Zombie (std::string _name) {
             name = _name;
         }
-        
+
         ~Zombie (void) {
             std::cout << name << " deleted" << std::endl;
         }
@@ -17,5 +17,7 @@ class Zombie {
         void    announce (void);
 };
 
+Zombie* newZombie(std::string name);
+void    randomChump(std::string name);
 
 #endif
