@@ -6,14 +6,9 @@ class Zombie {
     private:
         std::string name;
     public:
-        Zombie (std::string _name) {
-            name = _name;
-        }
-
-        ~Zombie (void) {
-            std::cout << name << " deleted" << std::endl;
-        }
-
+        Zombie ();
+        ~Zombie (void);
+        void    setName (std::string _name);
         void    announce (void);
 };
 
