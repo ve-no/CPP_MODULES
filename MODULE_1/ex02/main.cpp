@@ -6,6 +6,10 @@ int main() {
     std::string &stringREF = str;
 
     std::cout << "Memory address of the string str: " << &str << std::endl;
-    std::cout << "Memory address of the stringPTR: " << stringPTR << std::endl;
-    std::cout << "Memory address of the stringREF: " << &stringREF << std::endl;
+    std::cout << "Memory address of the stringPTR:  " << stringPTR << std::endl;
+    std::cout << "Memory address of the stringREF:  " << &stringREF << std::endl;
+
+    std::cout << "Value of the string str: " << str << std::endl;
+    std::cout << "Value of the stringPTR:  " << *stringPTR << std::endl;
+    std::cout << "Value of the stringREF:  " << stringREF << std::endl;
 }
