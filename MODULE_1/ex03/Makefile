@@ -2,7 +2,7 @@ NAME = BRAIN
 
 SRC	 = HumanA.cpp HumanB.cpp Weapon.cpp main.cpp 
 
-CPPFLAGS = -Wall -Wextra -Werror
+CPPFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 
 RM = rm -rf
 
