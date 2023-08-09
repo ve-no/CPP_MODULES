@@ -1,6 +1,6 @@
 NAME = BRAIN
 
-SRC	 = HumanA.cpp HumanB.cpp Weapon.cpp main.cpp
+SRC	 = HumanA.cpp HumanB.cpp Weapon.cpp main.cpp 
 
 CPPFLAGS = -Wall -Wextra -Werror
 

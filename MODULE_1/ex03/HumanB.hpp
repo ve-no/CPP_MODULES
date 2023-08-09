@@ -1,17 +1,20 @@
-#ifndef HUMAN_A_HPP
-#define HUMAN_A_HPP
+#ifndef HUMAN_B_HPP
+#define HUMAN_B_HPP
 
 # include <iostream>
 # include "Weapon.hpp"
 
 class HumanB {
     public:
-        HumanB(std::string _name);
+        HumanB(std::string name) : name(name) {
+            weapon = nullptr;
+        };
         ~HumanB() {};
         void    attack();
+        void setWeapon(Weapon &newWeapon);
     private:
         std::string name;
-        Weapon weapon;
+        Weapon *weapon;
 };
 
 #endif
