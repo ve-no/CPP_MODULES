@@ -6,10 +6,8 @@
 
 class HumanB {
     public:
-        HumanB(std::string name) : name(name) {
-            weapon = nullptr;
-        };
-        ~HumanB() {};
+        HumanB(std::string name);
+        ~HumanB();
         void    attack();
         void setWeapon(Weapon &newWeapon);
     private:
