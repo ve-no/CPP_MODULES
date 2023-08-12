@@ -28,4 +28,5 @@ void Harl::complain(std::string level) {
 			return ;
 		}
 	}
+	std::cout << "Invalid level: " << level << std::endl;
 }
