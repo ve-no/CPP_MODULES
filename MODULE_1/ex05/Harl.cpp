@@ -17,18 +17,15 @@ void Harl::error() {
 	std::cout << "ERROR: Error message\n";
 }
 
-void complain(std::string level) {
-	// std::map<std::string, void (Harl::*)()> levelMap;
+void Harl::complain(std::string level) {
 	std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	// levelMap["DEBUG"] = &Harl::debug;
-	// levelMap["INFO"] = &Harl::info;
-	// levelMap["WARNING"] = &Harl::warning;
-	// levelMap["ERROR"] = &Harl::error;
-
-	// std::map<std::string, void (Harl::*)()>::iterator it = levelMap.find(level);
-	// if (it != levelMap.end()) {
-	// 	(this->*(it->second))();
-	// } else {
-	// 	std::cout << "Invalid level: " << level << std::endl;
-	// }
+	void (Harl::*fun[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	for (int i = 0; i < 4; i++)
+	{
+		if (levels[i] == level)
+		{
+			(this->*fun[i])();
+			return ;
+		}
+	}
 }
