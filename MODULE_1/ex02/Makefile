@@ -11,10 +11,8 @@ OBJ  = $(SRC:.cpp=.o)
 %.o: %.cpp
 	@c++ $(CPPFLAGS) -c $< -o $@
 
-all: $(NAME) header_m
+all: $(NAME)
 
-header_m:
-	@echo "\033[0;31m$$HEADER_M\033[0m\n"
 
 $(NAME): $(OBJ)
 	@echo "\033[0;32m\n\nCompiling ..."

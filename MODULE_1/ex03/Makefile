@@ -13,7 +13,6 @@ OBJ  = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-
 $(NAME): $(OBJ)
 	@echo "\033[0;32m\n\nCompiling ..."
 	@c++ $(CPPFLAGS) -std=c++98 $(OBJ) -o $(NAME)

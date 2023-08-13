@@ -1,12 +1,3 @@
-define HEADER_M
- ____  _____  __  __  ____  ____  ____ 
-(_   )(  _  )(  \/  )(  _ \(_  _)( ___)
- / /_  )(_)(  )    (  ) _ < _)(_  )__) 
-(____)(_____)(_/\/\_)(____/(____)(____)
-
-endef
-export HEADER_M
-
 NAME = zombie
 
 SRC	 = Zombie.cpp main.cpp newZombie.cpp randomChump.cpp
@@ -20,10 +11,7 @@ OBJ  = $(SRC:.cpp=.o)
 %.o: %.cpp
 	@c++ $(CPPFLAGS) -c $< -o $@
 
-all: $(NAME) header_m
-
-header_m:
-	@echo "\033[0;31m$$HEADER_M\033[0m\n"
+all: $(NAME)
 
 $(NAME): $(OBJ)
 	@echo "\033[0;32m\n\nCompiling ..."
