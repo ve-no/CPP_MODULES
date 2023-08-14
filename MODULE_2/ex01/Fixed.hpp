@@ -19,12 +19,13 @@ public:
 
     ~Fixed();
 
-    float toFloat() const;
+    float toFloat()const;
 
-    int toInt() const;
+    int toInt()const;
 
-    friend std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 
 
 
