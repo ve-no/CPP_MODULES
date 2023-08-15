@@ -20,6 +20,84 @@ Fixed& Fixed::operator=(const Fixed& other) {
     return (*this);
 }
 
+bool Fixed::operator==(const Fixed& other) {
+    return (value == other.value);
+}
+
+bool Fixed::operator!=(const Fixed& other) {
+    return (value != other.value);
+}
+
+bool Fixed::operator>(const Fixed& other)const{
+    return (value > other.value);
+}
+
+bool Fixed::operator<(const Fixed& other)const{
+    return (value < other.value);
+}
+
+bool Fixed::operator>=(const Fixed& other) {
+    return (value >= other.value);
+}
+
+bool Fixed::operator<=(const Fixed& other) {
+    return (value <= other.value);
+}
+
+Fixed Fixed::operator+(const Fixed& other) {
+    return (Fixed(toFloat() + other.toFloat()));
+}
+
+Fixed Fixed::operator-(const Fixed& other) {
+    return (Fixed(toFloat() - other.toFloat()));
+}
+
+Fixed Fixed::operator*(const Fixed& other) {
+    return (Fixed(toFloat() * other.toFloat()));
+}
+
+Fixed Fixed::operator/(const Fixed& other) {
+    return (Fixed(toFloat() / other.toFloat()));
+}
+
+Fixed& Fixed::operator++() {
+    value++;
+    return (*this);
+}
+
+Fixed Fixed::operator++(int) {
+    Fixed tmp(*this);
+    operator++();
+    return (tmp);
+}
+
+Fixed& Fixed::operator--() {
+    value--;
+    return (*this);
+}
+
+Fixed Fixed::operator--(int) {
+    Fixed tmp(*this);
+    operator--();
+    return (tmp);
+}
+
+Fixed& Fixed::min(Fixed& a, Fixed& b) {
+    return (a < b ? a : b);
+}
+
+Fixed& Fixed::max(Fixed& a, Fixed& b) {
+    return (a > b ? a : b);
+}
+
+const Fixed& Fixed::max(const Fixed& a, const Fixed& b) {
+    return (a > b ? a : b);
+}
+
+const Fixed& Fixed::min(const Fixed& a, const Fixed& b) {
+    return (a < b ? a : b);
+}
+
 Fixed::Fixed(const int intValue) {
     value = intValue * pow(2, fractionalBits);
 }
