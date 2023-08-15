@@ -1,7 +1,7 @@
 #include "Fixed.hpp"
 
 int main() {
-    const Fixed a;
+    Fixed a;
     Fixed  b(a);
     a= b;
     a.getRawBits();
@@ -9,7 +9,7 @@ int main() {
     c = b;
     a.getRawBits();
     a.setRawBits(1);
-    // b.setRawBits(2);
+    b.setRawBits(2);
     c.setRawBits(3);
     std::cout << a.getRawBits() << std::endl;
     std::cout << b.getRawBits() << std::endl;

@@ -8,9 +8,9 @@ private:
 public:
     Fixed();
 
-    Fixed(Fixed& other);
+    Fixed(const Fixed& other);
 
-    Fixed& operator=(Fixed& other);
+    Fixed& operator=(const Fixed& other);
 
     ~Fixed();
 
