@@ -1,16 +1,17 @@
 #include "Fixed.hpp"
+
 Fixed::Fixed() {
     value = 0;
     std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed& other) {
-    std::cout << "Copy constructor called" << std::endl;
+    // std::cout << "Copy constructor called" << std::endl;
     value = other.value;
 }
 
 Fixed::~Fixed() {
-    std::cout << "Destructor called" << std::endl;
+    // std::cout << "Destructor called" << std::endl;
 }
 
 Fixed& Fixed::operator=(const Fixed& other) {
@@ -20,11 +21,11 @@ Fixed& Fixed::operator=(const Fixed& other) {
     return (*this);
 }
 
-bool Fixed::operator==(const Fixed& other) {
+bool Fixed::operator==(const Fixed& other)const{
     return (value == other.value);
 }
 
-bool Fixed::operator!=(const Fixed& other) {
+bool Fixed::operator!=(const Fixed& other)const{
     return (value != other.value);
 }
 
@@ -36,11 +37,11 @@ bool Fixed::operator<(const Fixed& other)const{
     return (value < other.value);
 }
 
-bool Fixed::operator>=(const Fixed& other) {
+bool Fixed::operator>=(const Fixed& other)const{
     return (value >= other.value);
 }
 
-bool Fixed::operator<=(const Fixed& other) {
+bool Fixed::operator<=(const Fixed& other)const{
     return (value <= other.value);
 }
 
