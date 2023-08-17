@@ -1,9 +1,13 @@
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
 int main() {
-    ClapTrap claptrap("D7");
+    FragTrap fragtrap("D7");
 
-    claptrap.attack("Enemy");
-    claptrap.beRepaired(2);
+    fragtrap.attack("Enemy");
+
+    fragtrap.highFivesGuys();
+
+
+    
     return 0;
 }
