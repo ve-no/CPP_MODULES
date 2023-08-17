@@ -1,9 +1,15 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main() {
-    ClapTrap claptrap("D7");
+    ScavTrap scavtrap("D7");
 
-    claptrap.attack("Enemy");
-    claptrap.beRepaired(2);
+    scavtrap.attack("Enemy");
+
+    scavtrap.guardGate();
+
+    
+
+
+
     return 0;
 }
