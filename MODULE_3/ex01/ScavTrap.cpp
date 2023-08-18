@@ -15,10 +15,10 @@ ScavTrap::ScavTrap(std::string name)
 	hitPoints_ = 100;
 	energyPoints_ = 50;
 	attackDamage_ = 20;
-	std::cout << "ScavTrap " << name_ << " created!" << std::endl;
+	std::cout << "ScavTrap " << name_ << " (created!" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& copy)
+ScavTrap::ScavTrap(const ScavTrap& copy) : ClapTrap(copy)
 {
 	this->name_ = copy.name_;
 	this->hitPoints_ = copy.hitPoints_;
