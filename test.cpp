@@ -1,24 +1,36 @@
 #include <iostream>
-#include <string>
 
-class Player {
-    int i;
-    std::string Str;
-    std::string sds;
+class Animal {
 public:
-//     Player(int x, std::string str) {
-//     i = x;
-//     Str = str;
-//  }
-// void fun(void);
+    virtual void make_sound() const {
+        std::cout << "Animal makes a sound" << std::endl;
+    }
 };
-    // void Player::fun(void) {
-    //     std::cout << Str << i << std::endl;
-    // }
 
-int main ()
-{
-    Player player;
-    std::cout<< sizeof (Player);
-    // player.fun();
+class Dog : public Animal {
+public:
+    void make_sound() const {
+        std::cout << "Dog barks: Woof!" << std::endl;
+    }
+};
+
+class Cat : public Animal {
+public:
+    void make_sound() const{
+        std::cout << "Cat meows: Meow!" << std::endl;
+    }
+};
+
+void animal_sounds(const Animal* animal) {
+    animal->make_sound();
+}
+
+int main() {
+    Dog* dog = new Dog();
+    Cat *cat = new Cat();
+
+    animal_sounds(dog);  // Output: Dog barks: Woof!
+    animal_sounds(cat);  // Output: Cat meows: Meow!
+
+    return 0;
 }
