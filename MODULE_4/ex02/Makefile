@@ -1,5 +1,5 @@
 
-NAME = animal
+NAME = Brain
 
 SRCS = $(wildcard *.cpp)
 

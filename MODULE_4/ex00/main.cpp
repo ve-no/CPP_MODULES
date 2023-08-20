@@ -16,9 +16,6 @@ int main() {
 
 	j->makeSound(); //will output the cat sound!
 	i->makeSound();
-
-	std::cout << std::endl;
-
 	meta->makeSound();
 	delete meta;
 	delete j;
