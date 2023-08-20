@@ -1,4 +1,3 @@
-
 NAME = Brain
 
 SRCS = $(wildcard *.cpp)
