@@ -39,12 +39,14 @@ public:
 };
 
 int main() {
-	
+
     Circle circle(5.0);
     Square square(4.0);
 
     AbstractShape* shapePtr1 = &circle;
     AbstractShape* shapePtr2 = &square;
+
+	AbstractShape shapePtr3 ;
 
     shapePtr1->display();
     std::cout << "Area: " << shapePtr1->area() << std::endl;
