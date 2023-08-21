@@ -17,12 +17,12 @@ AAnimal::~AAnimal() {
 
 AAnimal &AAnimal::operator=(const AAnimal &copy) {
 	std::cout << "AAnimal assignation operator called" << std::endl;
-	this->type = copy.type;
+	this->_type = copy._type;
 	return *this;
 }
 
 std::string AAnimal::getType() const {
-	return this->type;
+	return this->_type;
 }
 
 void AAnimal::makeSound() const {

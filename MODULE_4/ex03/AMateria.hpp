@@ -1,8 +1,8 @@
 #ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#define AMATERIA_HPP
 
-# include <iostream>
-# include "ICharacter.hpp"
+#include <iostream>
+#include "ICharacter.hpp"
 
 class ICharacter;
 
@@ -19,8 +19,8 @@ class AMateria {
 		virtual AMateria* clone() const = 0;
 		virtual void use(ICharacter& target);
 	protected:
-		std::string type;
-		unsigned int xp;
+		std::string _type;
+		unsigned int _xp;
 };
 
 #endif

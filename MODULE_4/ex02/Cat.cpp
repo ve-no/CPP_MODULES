@@ -2,7 +2,7 @@
 
 Cat::Cat(){
 	this->brain = new Brain();
-	this->type = "Cat";
+	this->_type = "Cat";
 	std::cout << "Cat default constructor called" << std::endl;
 }
 
@@ -18,7 +18,7 @@ Cat::~Cat() {
 
 Cat &Cat::operator=(const Cat &copy) {
 	std::cout << "Cat assignation operator called" << std::endl;
-	this->type = copy.type;
+	this->_type = copy._type;
 	return *this;
 }
 

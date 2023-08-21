@@ -1,10 +1,10 @@
 #include "MateriaSource.hpp"
 
-MateriaSource::MateriaSource() {
+MateriaSource::MateriaSource() : _count(0) {
 	std::cout << "MateriaSource default constructor called" << std::endl;
-	for (int i = 0; i < 4; i++)
-		this->inventory[i] = NULL;
 }
+
+
 
 MateriaSource::MateriaSource(const MateriaSource &copy) {
 	std::cout << "MateriaSource copy constructor called" << std::endl;
@@ -13,35 +13,36 @@ MateriaSource::MateriaSource(const MateriaSource &copy) {
 
 MateriaSource::~MateriaSource() {
 	std::cout << "MateriaSource destructor called" << std::endl;
-	for (int i = 0; i < 4; i++)
-		delete this->inventory[i];
+	for (int i = 0; i < this->_count; i++) {
+		delete this->_materia[i];
+	}
 }
 
 MateriaSource &MateriaSource::operator=(const MateriaSource &copy) {
 	std::cout << "MateriaSource assignation operator called" << std::endl;
-	for (int i = 0; i < 4; i++)
-		delete this->inventory[i];
-	for (int i = 0; i < 4; i++)
-		this->inventory[i] = copy.inventory[i]->clone();
+	for (int i = 0; i < this->_count; i++) {
+		delete this->_materia[i];
+	}
+	this->_count = copy._count;
+	for (int i = 0; i < this->_count; i++) {
+		this->_materia[i] = copy._materia[i]->clone();
+	}
 	return *this;
 }
 
-void MateriaSource::learnMateria(AMateria *m) {
-	for (int i = 0; i < 4; i++) {
-		if (this->inventory[i] == NULL) {
-			this->inventory[i] = m;
-			return ;
-		}
-	}
+void MateriaSource::learnMateria(AMateria* m) {
+	if (this->_count == 4 || !m)
+		return ;
+	this->_materia[this->_count] = m;
+	this->_count++;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type) {
-	for (int i = 0; i < 4; i++) {
-		if (this->inventory[i] != NULL && this->inventory[i]->getType() == type)
-			return this->inventory[i]->clone();
+	for (int i = 0; i < this->_count; i++) {
+		if (this->_materia[i]->getType() == type)
+			return this->_materia[i]->clone();
 	}
 	return NULL;
 }
-
 
 

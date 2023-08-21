@@ -4,9 +4,8 @@ Ice::Ice() : AMateria("ice") {
 	std::cout << "Ice default constructor called" << std::endl;
 }
 
-Ice::Ice(const Ice &copy) {
+Ice::Ice(const Ice &copy) : AMateria(copy) {
 	std::cout << "Ice copy constructor called" << std::endl;
-	*this = copy;
 }
 
 Ice::~Ice() {
@@ -15,8 +14,8 @@ Ice::~Ice() {
 
 Ice &Ice::operator=(const Ice &copy) {
 	std::cout << "Ice assignation operator called" << std::endl;
-	this->type = copy.type;
-	this->xp = copy.xp;
+	this->_type = copy._type;
+	this->_xp = copy._xp;
 	return *this;
 }
 
@@ -26,7 +25,7 @@ AMateria* Ice::clone() const {
 
 void Ice::use(ICharacter& target) {
 	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
-	this->xp += 10;
+	this->_xp += 10;
 }
 
 
