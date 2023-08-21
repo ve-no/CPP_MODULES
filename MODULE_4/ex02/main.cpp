@@ -3,25 +3,19 @@
 #include "Cat.hpp"
 
 int main() {
-	// const Animal* meta = new Animal();
-	// const AAnimal *j = new Dog();
-	// const Animal* i = new Cat();
-
-	AAnimal *k[2] = {new Dog(), new Cat()};
-
-	std::cout << std::endl;
-	for (int i = 0; i < 2; i++) {
+	const AAnimal* j = new Dog();
+	AAnimal g = AAnimal();
+	const AAnimal* i = new Cat();
+	AAnimal *k[4] = {new Dog(), new Cat(), new Dog(), new Cat()};
+	for (int i = 0; i < 4; i++)
+	{
+		k[i]->makeSound();
 		delete k[i];
 	}
+	delete j;
+	// delete g;
+	delete i;
 
-	// std::cout << j->getType() << " " << std::endl;
-	// std::cout << i->getType() << " " << std::endl;
 
-	// j->makeSound(); //will output the cat sound!
-	// i->makeSound();
-	// meta->makeSound();
-	// delete meta;
-	// delete j;
-	// delete i;
 	return 0;
 }
