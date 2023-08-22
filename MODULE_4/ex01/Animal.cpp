@@ -1,13 +1,13 @@
 #include "Animal.hpp"
 
 Animal::Animal() {
-	this->_type = "Animal";
+	this->type = "Animal";
 	std::cout << "Animal default constructor called" << std::endl;
 }
 
 Animal::Animal(std::string type) {
 	std::cout << "Animal type constructor called" << std::endl;
-	this->_type = type;
+	this->type = type;
 }
 
 Animal::Animal(const Animal &copy) {
@@ -21,16 +21,16 @@ Animal::~Animal() {
 
 Animal &Animal::operator=(const Animal &copy) {
 	std::cout << "Animal assignation operator called" << std::endl;
-	this->_type = copy._type;
+	this->type = copy.type;
 	return *this;
 }
 
 std::string Animal::getType() const {
-	return this->_type;
+	return this->type;
 }
 
 void Animal::setType(std::string type) {
-	this->_type = type;
+	this->type = type;
 }
 
 void Animal::makeSound() const {
