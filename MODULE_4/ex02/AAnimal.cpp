@@ -3,20 +3,20 @@
 
 
 AAnimal::AAnimal() : type("AAnimal") {
-	std::cout << "AAnimal default constructor called" << std::endl;
+	// std::cout << "AAnimal default constructor called" << std::endl;
 }
 
 AAnimal::AAnimal(const AAnimal &copy) {
-	std::cout << "AAnimal copy constructor called" << std::endl;
+	// std::cout << "AAnimal copy constructor called" << std::endl;
 	*this = copy;
 }
 
 AAnimal::~AAnimal() {
-	std::cout << "AAnimal destructor called" << std::endl;
+	// std::cout << "AAnimal destructor called" << std::endl;
 }
 
 AAnimal &AAnimal::operator=(const AAnimal &copy) {
-	std::cout << "AAnimal assignation operator called" << std::endl;
+	// std::cout << "AAnimal assignation operator called" << std::endl;
 	this->type = copy.type;
 	return *this;
 }
@@ -26,7 +26,7 @@ std::string AAnimal::getType() const {
 }
 
 void AAnimal::makeSound() const {
-	std::cout << "AAnimal makes a sound" << std::endl;
+	// std::cout << "AAnimal makes a sound" << std::endl;
 }
 
 

@@ -12,7 +12,6 @@ int main() {
 		delete k[i];
 	}
 	delete j;
-	// delete g;
 	delete i;
 
 
