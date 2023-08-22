@@ -37,6 +37,10 @@ int main() {
 	i->makeSound();
 	meta->makeSound();
 	delete meta;
+
+	delete wrongMeta;
+	delete wrongI;
+	delete wrongJ;
 	delete j;
 	delete i;
 	return 0;
