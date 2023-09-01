@@ -14,7 +14,7 @@ private:
 	const int _gradeToExecute;
 
 public:
-	Form(const std::string name, const int gradeToSign ,const int gradeToExecute);
+	Form(const std::string name, const int gradeToSign, const int gradeToExecute);
 	~Form();
 	const std::string getName() const;
 	bool isSigned() const;
@@ -26,14 +26,23 @@ public:
 	class GradeTooHighException : public std::exception
 	{
 		public:
+			GradeTooHighException();
+			GradeTooHighException(const std::string& message);
+			~GradeTooHighException();
 			virtual const char *what() const throw();
+		private:
+			std::string msg;
 	};
 	class GradeTooLowException : public std::exception
 	{
 		public:
+			GradeTooLowException();
+			GradeTooLowException(const std::string& message);
+			~GradeTooLowException();
 			virtual const char *what() const throw();
+		private:
+			std::string msg;
 	};
-
 };
 
 std::ostream& operator<<(std::ostream& os, const Form& form);

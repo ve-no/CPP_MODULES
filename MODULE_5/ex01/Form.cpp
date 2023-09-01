@@ -24,18 +24,32 @@ int Form::getGradeToExecute() const{
 	return (this->_gradeToExecute);
 }
 
-const char *Form::GradeTooHighException::what() const throw() {
-	return "Grade is too hight!";
-}
-
-const char *Form::GradeTooLowException::what() const throw() {
-	return "Grade is too low!";
-}
-
 void Form::beSigned(const Bureaucrat &bureaucrat) {
 	if (bureaucrat.getGrade() < _gradeToSign)
 		throw Form::GradeTooLowException();
 	_isSigned = true;
+}
+
+Form::GradeTooHighException::GradeTooHighException() : msg("Grade is too hight!") {}
+
+Form::GradeTooHighException::GradeTooHighException(const std::string& message) : msg(message) {}
+
+Form::GradeTooHighException::~GradeTooHighException() {}
+
+const char *Form::GradeTooHighException::what() const throw()
+{
+	return msg.c_str();
+}
+
+Form::GradeTooLowException::GradeTooLowException() : msg("Grade is too low!") {}
+
+Form::GradeTooLowException::GradeTooLowException(const std::string& message) : msg(message) {}
+
+Form::GradeTooLowException::~GradeTooLowException() {}
+
+const char *Form::GradeTooLowException::what() const throw()
+{
+	return msg.c_str();
 }
 
 std::ostream& operator<<(std::ostream& os, const Form& form) {
