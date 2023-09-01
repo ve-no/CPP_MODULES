@@ -1,25 +1,13 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::GradeTooHighException::GradeTooHighException() : msg("Grade is too hight!") {}
-
-Bureaucrat::GradeTooHighException::GradeTooHighException(const std::string& message) : msg(message) {}
-
-Bureaucrat::GradeTooHighException::~GradeTooHighException() {}
-
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return msg.c_str();
+	return "Grade is too hight!";
 }
-
-Bureaucrat::GradeTooLowException::GradeTooLowException() : msg("Grade is too low!") {}
-
-Bureaucrat::GradeTooLowException::GradeTooLowException(const std::string& message) : msg(message) {}
-
-Bureaucrat::GradeTooLowException::~GradeTooLowException() {}
 
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return msg.c_str();
+	return "Grade is too low!";
 }
 
 Bureaucrat::Bureaucrat() : _name("default"), _grade(75) {}
