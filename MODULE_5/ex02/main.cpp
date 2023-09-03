@@ -4,40 +4,59 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-int	main(void)
+int main()
 {
-	Bureaucrat	bob("Bob", 1);
-	Bureaucrat	jim("Jim", 150);
-	ShrubberyCreationForm	shrubbery("home");
-	RobotomyRequestForm		robotomy("home");
-	PresidentialPardonForm	presidential("home");
+	std::cout << "----- ShrubberyCreationForm -----" << std::endl;
+	try
+	{
+		Bureaucrat b1("b1", 2);
+		Bureaucrat b2("b2", 10);
+		ShrubberyCreationForm s1("s1");
+		ShrubberyCreationForm s2("s2");
+		b1.signAForm(s1);
+		b1.executeForm(s1);
+		b2.signAForm(s2);
+		b2.executeForm(s2);
+		s1.execute(b1);
+		s2.execute(b2);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 
-	std::cout << bob << std::endl;
-	std::cout << jim << std::endl;
-	std::cout << shrubbery << std::endl;
-	std::cout << robotomy << std::endl;
-	std::cout << presidential << std::endl;
+	std::cout << "----- RobotomyRequestForm -----" << std::endl;
+	try
+	{
+		Bureaucrat b1("b1", 1);
+		Bureaucrat b2("b2", 150);
+		RobotomyRequestForm r1("r1");
+		RobotomyRequestForm r2("r2");
+		b1.signAForm(r1);
+		b1.executeForm(r1);
+		b2.signAForm(r2);
+		b2.executeForm(r2);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 
-	std::cout << "-----" << std::endl;
-
-	bob.signForm(shrubbery);
-	bob.signForm(robotomy);
-	bob.signForm(presidential);
-	jim.signForm(shrubbery);
-	jim.signForm(robotomy);
-	jim.signForm(presidential);
-
-	std::cout << "-----" << std::endl;
-
-	bob.executeForm(shrubbery);
-	bob.executeForm(robotomy);
-	bob.executeForm(presidential);
-	jim.executeForm(shrubbery);
-	jim.executeForm(robotomy);
-	jim.executeForm(presidential);
-
-	std::cout << "-----" << std::endl;
-
-	return (0);
+	std::cout << "----- PresidentialPardonForm -----" << std::endl;
+	try
+	{
+		Bureaucrat b1("b1", 1);
+		Bureaucrat b2("b2", 150);
+		PresidentialPardonForm p1("p1");
+		PresidentialPardonForm p2("p2");
+		b1.signAForm(p1);
+		b1.executeForm(p1);
+		b2.signAForm(p2);
+		b2.executeForm(p2);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	return 0;
 }
-
