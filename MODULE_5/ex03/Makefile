@@ -1,5 +1,5 @@
 
-NAME = ex02
+NAME = ex03
 
 SRCS = $(wildcard *.cpp)
 
@@ -8,6 +8,7 @@ OBJS = $(SRCS:.cpp=.o)
 CC = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
+
 all: $(NAME)
 
 $(NAME): $(OBJS)

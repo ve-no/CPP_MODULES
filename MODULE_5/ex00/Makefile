@@ -1,5 +1,5 @@
 
-NAME = Bureaucrat
+NAME = ex00
 
 SRCS = $(wildcard *.cpp)
 
