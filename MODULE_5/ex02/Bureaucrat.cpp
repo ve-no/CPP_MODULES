@@ -71,7 +71,8 @@ void Bureaucrat::executeForm(AForm const &form)
 	}
 	catch (std::exception &e)
 	{
-		std::cout << _name << " cannot execute " << form.getName() << " because " << e.what() << std::endl;
+		std::cout << _name << " cannot execute " << form.getName()
+			<< " because " << e.what() << std::endl;
 	}
 }
 
@@ -90,8 +91,3 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return "Grade is too low!";
 }
-
-// void Bureaucrat::execute(const Bureaucrat &executor) const
-// {
-// 	(void)executor;
-// }

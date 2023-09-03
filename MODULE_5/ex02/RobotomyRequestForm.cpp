@@ -25,11 +25,9 @@ const std::string	&RobotomyRequestForm::getTarget() const { return (this->_targe
 
 void	RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
-	// if (executor.getGrade() < getGradeToSign())
-	// 	throw AForm::GradeTooLowException();
 	if (!getSigned())
 		throw AForm::FormNotSignedException();
-	else if (executor.getGrade() > getGradeToExecute())
+	if (executor.getGrade() > getGradeToExecute())
 		throw AForm::ExecuteException();
 	std::cout << "* drilling noises *" << std::endl;
 	if (rand() % 2)

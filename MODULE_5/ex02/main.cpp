@@ -23,6 +23,7 @@ int main()
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
+
 	}
 
 	std::cout << "----- RobotomyRequestForm -----" << std::endl;
@@ -45,7 +46,7 @@ int main()
 	std::cout << "----- PresidentialPardonForm -----" << std::endl;
 	try
 	{
-		Bureaucrat b1("b1", 1);
+		Bureaucrat b1("b1", 80);
 		Bureaucrat b2("b2", 150);
 		PresidentialPardonForm p1("p1");
 		PresidentialPardonForm p2("p2");
@@ -53,6 +54,8 @@ int main()
 		b1.executeForm(p1);
 		b2.signAForm(p2);
 		b2.executeForm(p2);
+		p1.execute(b1);
+
 	}
 	catch (std::exception &e)
 	{
