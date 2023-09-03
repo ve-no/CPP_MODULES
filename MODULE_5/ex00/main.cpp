@@ -4,7 +4,7 @@ int main ()
 {
 	try
 	{
-		Bureaucrat *bureaucrat2 = new Bureaucrat("bureaucrat2", 1);
+		Bureaucrat *bureaucrat2 = new Bureaucrat("bureaucrat2", 150);
 		std::cout << *bureaucrat2;
 	}
 	catch (const std::exception &e)
