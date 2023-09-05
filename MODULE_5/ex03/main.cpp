@@ -14,7 +14,7 @@ int main()
 	AForm* scf;
 	AForm* form;
 
-	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+	rrf = someRandomIntern.makeForm("obotomy request", "Bender");
 	ppf = someRandomIntern.makeForm("presidential pardon", "Bender");
 	scf = someRandomIntern.makeForm("shrubbery creation", "Bender");
 	form = someRandomIntern.makeForm("test", "Bender");
