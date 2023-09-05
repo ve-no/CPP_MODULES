@@ -19,7 +19,7 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &copy)
 
 const char *ScalarConverter::NonDisplayableException::what() const throw()
 {
-	return ("Non displayable");
+	return ("Non displayable ");
 }
 
 void ScalarConverter::toChar()
