@@ -41,6 +41,7 @@ void ScalarConverter::toInt()
 	std::istringstream iss(this->_input);
 	int i;
 	iss >> i;
+
 	i = static_cast<int>(i);
 	std::cout << "int: " << i << std::endl;
 }
