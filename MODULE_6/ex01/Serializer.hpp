@@ -15,9 +15,9 @@ class Serializer
 {
 private:
 	std::string _input;
-public:
-	Serializer();
 	Serializer(std::string input);
+	Serializer();
+public:
 	Serializer(const Serializer &copy);
 	~Serializer();
 	Serializer &operator=(const Serializer &copy);
