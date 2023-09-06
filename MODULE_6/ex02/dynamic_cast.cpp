@@ -1,7 +1,7 @@
 #include "dynamic_cast.hpp"
 
 Base *generate() {
-	std::srand(static_cast<unsigned>(std::time(NULL)));
+	std::srand(static_cast<unsigned int>(std::time(NULL)));
 	int randomValue = std::rand() % 3;
 
 	switch (randomValue) {
@@ -44,6 +44,6 @@ void identify(Base& p) {
 
 	}
 	catch (std::exception &e) {}
-	}
+}
 
 
