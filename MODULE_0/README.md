@@ -83,7 +83,7 @@ If you have any questions or need assistance, feel free to contact me:
 - Instagram: [@ael_bak](https://www.instagram.com/ael_bak/)
 - GitHub: [ve-no](https://github.com/ve-no)
 - LinkedIn: [Allal EL BAKOURI](https://www.linkedin.com/in/allal-el-bakouri-ba3565205/)
-- Twitter: [@el_bak](https://twitter.com/ael_bak)
+- Twitter: [@ael_bak](https://twitter.com/ael_bak)
 
 ## Chapter VII - Submission and Peer-Evaluation
 
