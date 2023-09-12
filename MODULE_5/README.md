@@ -38,7 +38,6 @@ To truly master the concepts in this module, here are some resources to help you
 - [C++ Exceptions](https://www.cplusplus.com/doc/tutorial/exceptions/): Learn more about exceptions in C++.
 - [C++ Classes and Objects](https://www.geeksforgeeks.org/c-classes-and-objects/): Dive deeper into classes and objects in C++.
 - [C++ Standard Library](https://en.cppreference.com/w/cpp/header): Explore the C++ Standard Library for various classes and functions.
-- [C++ Templates](https://www.tutorialspoint.com/cplusplus/cpp_templates.htm): Templates can be handy when dealing with generic code.
 
 Happy coding, and may your forms be signed promptly!
 
