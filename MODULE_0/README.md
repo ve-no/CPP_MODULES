@@ -16,11 +16,11 @@ V. [Exercise 02: The Job Of Your Dreams](#exercise-02-the-job-of-your-dreams)
 VI. [Contact Information](#contact-information)
 VII. [Submission and Peer-Evaluation](#submission-and-peer-evaluation)
 
-## Chapter I - Introduction
+## Introduction
 
 C++ is a general-purpose programming language created by Bjarne Stroustrup. These modules introduce Object-Oriented Programming using C++98 standard. While modern C++ has evolved, this module provides a foundation.
 
-## Chapter II - General Rules
+## General Rules
 
 ### Compiling
 
@@ -55,28 +55,28 @@ C++ is a general-purpose programming language created by Bjarne Stroustrup. Thes
 - Read each module thoroughly
 - Use your intellect!
 
-## Chapter III - Exercise 00: Megaphone
+## Exercise 00: Megaphone
 
 - Turn-in directory: `ex00/`
 - Files to turn in: `Makefile`, `megaphone.cpp`
 - Forbidden functions: None
 - Description: Write a program that capitalizes and echoes command-line arguments.
 
-## Chapter IV - Exercise 01: My Awesome PhoneBook
+## Exercise 01: My Awesome PhoneBook
 
 - Turn-in directory: `ex01/`
 - Files to turn in: `Makefile`, `*.cpp`, `*.{h, hpp}`
 - Forbidden functions: None
 - Description: Implement a phonebook program using classes `PhoneBook` and `Contact`.
 
-## Chapter V - Exercise 02: The Job Of Your Dreams
+## Exercise 02: The Job Of Your Dreams
 
 - Turn-in directory: `ex02/`
 - Files to turn in: `Makefile`, `Account.cpp`, `Account.hpp`, `tests.cpp`
 - Forbidden functions: None
 - Description: Recreate a lost source file `Account.cpp` using `Account.hpp` and a log file.
 
-## Chapter VI - Contact Information
+## Contact Information
 
 If you have any questions or need assistance, feel free to contact me:
 
@@ -85,7 +85,7 @@ If you have any questions or need assistance, feel free to contact me:
 - LinkedIn: [Allal EL BAKOURI](https://www.linkedin.com/in/allal-el-bakouri-ba3565205/)
 - Twitter: [@ael_bak](https://twitter.com/ael_bak)
 
-## Chapter VII - Submission and Peer-Evaluation
+## Submission and Peer-Evaluation
 
 - Turn in your assignment in your Git repository.
 - Only the work inside your repository will be evaluated during the defense.
