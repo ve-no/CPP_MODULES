@@ -6,9 +6,9 @@
 # include <stdexcept>
 
 template <typename T>
-int easyfind( T container, int find) {
+int easyfind(const T& container, int find) {
 	if (std::find(container.begin(), container.end(), find) == container.end())
 		throw std::runtime_error("Value not found in the container.");
 
-	return 1;
+	return find;
 }

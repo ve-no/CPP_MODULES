@@ -7,7 +7,7 @@
 int main() {
 	const int arr[] = {1, 2, 3, 4, 5};
 	const std::vector<int> numbers(arr, arr + sizeof(arr) / sizeof(arr[0]));
-	
+
 	int target = 32;
 
 	std::list<int> nums;
@@ -17,9 +17,8 @@ int main() {
 	nums.push_back(32);
 	nums.push_back(44);
 
-
 	try {
-		easyfind(numbers, target);
+		easyfind(numbers, 2);
 		std::cout << "Value found in the container."<< std::endl;
 	}
 	catch (std::exception &e)
