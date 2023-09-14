@@ -4,20 +4,30 @@
 #include <vector>
 #include <exception>
 #include <algorithm>
-
+#include <cstdlib>
+#include <ctime>
+#include <climits>
 
 class Span {
 private:
 	std::vector<int> nums;
-	unsigned int n;
 public:
 	Span(unsigned int N);
 
+	Span(const Span &copy);
+
+	Span &operator=(const Span &copy);
+
+	~Span();
+
 	void addNumber(int num);
 
-	int shortestSpan();
+	long shortestSpan() const;
 
-	int longestSpan();
+	long longestSpan() const;
 
-	void addNumbers(const std::vector<int>& nums);
+	template <typename InputIterator>
+	void addRange(InputIterator begin, InputIterator end) {
+		std::copy(begin, end, std::back_inserter(nums));
+	}
 };
