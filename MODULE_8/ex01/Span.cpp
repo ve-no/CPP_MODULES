@@ -2,14 +2,9 @@
 #include <climits>
 
 
-Span::Span(unsigned int N) {
-	nums.reserve(N);
-}
+Span::Span(unsigned int N) { nums.reserve(N); }
 
-Span::Span(const Span &copy)
-{
-	*this = copy;
-}
+Span::Span(const Span &copy) { *this = copy; }
 
 Span &Span::operator=(const Span &copy)
 {
@@ -32,15 +27,15 @@ void Span::addNumber(int num)
 long Span::shortestSpan() const
 {
 	std::vector<int> vec = nums;
-	long short_span = INT_MAX;
 	if (vec.size() < 2)
 		throw std::runtime_error("there is less then 2 element in the container");
 	std::sort(vec.begin(), vec.end());
-	for (int i = 1; i < (int)vec.size(); i++) {
-		if ((static_cast <long> (vec.at(i)) - vec.at(i - 1)) < short_span)
-			short_span = static_cast <long> (vec.at(i)) - vec.at(i - 1);
+	long dis = (long)vec.at(1) - vec.at(0);
+	for (size_t i = 2; i < vec.size(); i++) {
+		if ((long)(vec.at(i)) - vec.at(i - 1) < dis)
+			dis = (long)(vec.at(i)) - vec.at(i - 1);
 	}
-	return short_span;
+	return (dis);
 }
 
 long Span::longestSpan() const
