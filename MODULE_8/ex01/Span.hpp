@@ -28,6 +28,8 @@ public:
 
 	template <typename InputIterator>
 	void addRange(InputIterator begin, InputIterator end) {
+		if (this->nums.size() + std::distance(begin, end) > this->nums.capacity())
+			throw std::runtime_error("the vector is fulll");
 		std::copy(begin, end, std::back_inserter(nums));
 	}
 };
