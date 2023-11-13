@@ -5,8 +5,13 @@
 #include "easyfind.hpp"
 
 int main() {
-	const int arr[] = {1, 2, 3, 4, 5};
-	const std::vector<int> numbers(arr, arr + sizeof(arr) / sizeof(arr[0]));
+	
+	std::vector<int> numbers;
+	numbers.push_back(1);
+	numbers.push_back(2);
+	numbers.push_back(3);
+	numbers.push_back(4);
+	numbers.push_back(5);
 
 	int target = 32;
 
