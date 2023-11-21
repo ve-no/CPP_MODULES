@@ -16,9 +16,19 @@ public:
     BitcoinExchange(const BitcoinExchange &copy);
     BitcoinExchange &operator=(const BitcoinExchange &copy);
     ~BitcoinExchange();
-    // double convert(std::string from, std::string to, double amount);
     void readData(std::string filename);
     void fillMap(std::string line);
     void parseFile(std::string filename);
+    void checkDates(std::string line);
+    void printData(float val, std::string date);
+    std::string decrDate(std::string date);
+
     std::map<std::string, double> getRates() const;
 };
+
+template <typename T>
+std::string to_string(const T& value) {
+  std::stringstream ss;
+  ss << value;
+  return ss.str();
+}
