@@ -1,8 +1,12 @@
 #include "BitcoinExchange.hpp"
 
-int main () {
+int main (int ac, char **av) {
+    if (ac != 2) {
+        std::cout << "Error: could not open file." << std::endl;
+        return 1;
+    }
     try {
-    BitcoinExchange b("file.csv", "data.csv");
+    BitcoinExchange b(av[1], "data.csv");
     // std::map<std::string, double> m = b.getRates();
     // std::map<std::string, double>::iterator it = m.begin();
     // while (it != m.end()) {
