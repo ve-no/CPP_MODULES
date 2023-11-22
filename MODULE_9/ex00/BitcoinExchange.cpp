@@ -91,23 +91,20 @@ void BitcoinExchange::checkDates(std::string line) {
     std::string date, del, val;
 
     s >> date >> del >> val;
-    if (del != "|" || val.empty()) {
-        std::cerr << "Error: bad input => " << date << std::endl;
-        return ;
-    }
     std::string year, month, day;
     std::stringstream ss(date);
     std::getline(ss, year, '-');
     std::getline(ss, month, '-');
     std::getline(ss, day);
-    if (year.length() != 4 || month.length() != 2 || day.length() != 2 || date.length() != 10)
-        throw std::runtime_error("invalid file format2");
-    if (atof(year.c_str()) < 2009 || atof(year.c_str()) > 2022)
-        std::cerr << "";
-    if (atof(month.c_str()) < 1 || atof(month.c_str()) > 12)
-        throw std::runtime_error("invalid file format4");
-    if (atof(day.c_str()) < 1 || atof(day.c_str()) > 31)
-        throw std::runtime_error("invalid file format5");
+    if (del != "|" || val.empty() || year.length() != 4 || month.length() != 2
+        || day.length() != 2 || date.length() != 10 || date < "2009-01-02") {
+        std::cerr << "Error: bad input => " << date << std::endl;
+        return ; }
+    if (atof(year.c_str()) < 2009 || atof(year.c_str()) > 2022 
+        || atof(month.c_str()) < 1 || atof(month.c_str()) > 12 
+        || atof(day.c_str()) < 1 || atof(day.c_str()) > 31) {
+        std::cerr << "Error: bad input => " << date << std::endl;
+        return ; }
     if (atof(val.c_str()) < 0) {
         std::cerr << "Error: not a positive number." << std::endl;
         return ;
@@ -129,7 +126,7 @@ void BitcoinExchange::parseFile(std::string filename) {
     std::getline(file, line);
     std::cout << line << std::endl;
     if (line != "date | value")
-        throw std::runtime_error("invalid file format7");
+        throw std::runtime_error("invalid file format");
     while (std::getline(file, line)) {
         checkDates(line);
     }
