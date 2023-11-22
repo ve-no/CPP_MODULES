@@ -7,7 +7,6 @@ int main (int ac, char **av) {
     }
     try {
     BitcoinExchange b(av[1], "data.csv");
-    // std::map<std::string, double> m = b.getRates();
     // std::map<std::string, double>::iterator it = m.begin();
     // while (it != m.end()) {
     //     std::cout << it->first << " " << it->second << std::endl;
