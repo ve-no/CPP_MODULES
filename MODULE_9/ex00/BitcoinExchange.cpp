@@ -38,38 +38,16 @@ void BitcoinExchange::readData(std::string filename) {
     file.close();
 }
 
-std::string BitcoinExchange::decrDate(std::string date) {
-    std::string year, month, day;
-    std::stringstream s(date);
-
-    std::getline(s, year, '-');
-    std::getline(s, month, '-');
-    std::getline(s, day);
-    int y = atof(year.c_str()),
-        m = atof(month.c_str()), d = atof(day.c_str());
-    if (d > 1)
-        d--;
-    else if (m > 1) {
-            m--;
-            d = 31;
-    } else if (y > 2008) {
-            y--;
-            m = 12;
-            d = 31;
-    }
-    year = to_string(y), month = to_string(m), day = to_string(d);
-    return year + "-" + month + "-" + day;
-}
-
-void BitcoinExchange::printData(float val, std::string date) {
+void BitcoinExchange::printData(float val, std::string date, std::string prevDate) {
     if (_rates.find(date) != _rates.end()) {
         float res = _rates[date] * val;
-        std::cout << date << " => " <<  val << " = " << res << std::endl;
+        std::cout << prevDate << " => " <<  val << " = " << res << std::endl;
         return ;
     }
     else {
-        date = decrDate(date);
-        printData(val, date);
+        std::map<std::string, double>::iterator it = _rates.lower_bound(date);
+        it--;
+        printData(val, it->first, prevDate);
     }
 }
 
@@ -98,7 +76,7 @@ void BitcoinExchange::checkDates(std::string line) {
     if (atof(val.c_str()) > 1000 || val.length() > 4) {
         std::cerr << "Error: too large a number." << std::endl;
         return ; }
-    printData(atof(val.c_str()), date);
+    printData(atof(val.c_str()), date, date);
 }
 
 void BitcoinExchange::parseFile(std::string filename) {
@@ -108,7 +86,6 @@ void BitcoinExchange::parseFile(std::string filename) {
     if (!file.is_open())
         throw std::runtime_error("file not found");
     std::getline(file, line);
-    std::cout << line << std::endl;
     if (line != "date | value")
         throw std::runtime_error("invalid file format");
     while (std::getline(file, line))
