@@ -31,14 +31,12 @@ void BitcoinExchange::readData(std::string filename) {
     while (std::getline(file, line)) {
         std::stringstream s(line);
         std::string rate, date;
-        
         getline(s, date, ',');
         getline(s, rate);
         _rates[date] = atof(rate.c_str());
     }
     file.close();
 }
-
 
 std::string BitcoinExchange::decrDate(std::string date) {
     std::string year, month, day;
