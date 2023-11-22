@@ -13,8 +13,7 @@ private:
     void readData(std::string filename);
     void parseFile(std::string filename);
     void checkDates(std::string line);
-    void printData(float val, std::string date);
-    std::string decrDate(std::string date);
+    void printData(float val, std::string date, std::string prevDate);
 public:
     BitcoinExchange();
     BitcoinExchange(std::string filename, std::string data);
