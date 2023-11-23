@@ -17,6 +17,11 @@ class RPN
         RPN(RPN const &other);
         RPN &operator=(RPN const &other);
         ~RPN();
+        /**
+         * Calculates the result of the given RPN expression.
+         *
+         * @param line The RPN expression to be calculated.
+         */
         void calcule(std::string line);
 
     private:
