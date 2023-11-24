@@ -1,16 +1,16 @@
 #include "PmergeMe.hpp"
 
-
-
 PmergeMe::PmergeMe(int ac, char **av) {
     std::deque<int> inputDeque;
     std::list<int> inputList;
 
-    // fill the containers with random integers
-    srand(static_cast<unsigned>(time(NULL)));
+    if (ac < 2) {
+        std::cerr << "Error: At least one input value is required." << std::endl;
+        exit(1);
+    }
     for (int i = 1; i < ac; ++i) {
         int value = atoi(av[i]);
-        if (value <= 0) {
+        if (value < 0) {
             std::cerr << "Error: Invalid input value \"" << av[i] << "\". Only positive integers are allowed." << std::endl;
             exit(1);
         }
@@ -21,12 +21,12 @@ PmergeMe::PmergeMe(int ac, char **av) {
     display(inputDeque);
 
     clock_t start1 = clock();
-    mergeInsertSortDeque(inputDeque);
+    mergeSort(inputDeque);
     clock_t end1 = clock();
     double time1 = static_cast<double>(end1 - start1) / CLOCKS_PER_SEC * 1000;
 
     clock_t start2 = clock();
-    mergeInsertSortList(inputList);
+    mergeSort(inputList);
     clock_t end2 = clock();
     double time2 = static_cast<double>(end2 - start2) / CLOCKS_PER_SEC * 1000;
 
@@ -48,20 +48,10 @@ void PmergeMe::display(const T& container) {
     std::cout << std::endl;
 }
 
-void PmergeMe::mergeInsertSortDeque(std::deque<int>& arr) {
-    std::deque<int>::iterator it1, it2;
-    for (it1 = arr.begin() + 1; it1 != arr.end(); ++it1) {
-        int temp = *it1;
-        it2 = it1;
-        while (it2 != arr.begin() && *(--it2) > temp) {
-            *it2 = *(it2 + 1);
-        }
-        *it2 = temp;
-    }
-}
+template <typename T>
 
-void PmergeMe::mergeInsertSortList(std::list<int>& arr) {
-    std::list<int>::iterator it1, it2, tempIt;
+void PmergeMe::mergeSort(T& arr) {
+    typename T::iterator it1, it2, tempIt;
     for (it1 = ++arr.begin(); it1 != arr.end(); ++it1) {
         int temp = *it1;
         it2 = it1;
