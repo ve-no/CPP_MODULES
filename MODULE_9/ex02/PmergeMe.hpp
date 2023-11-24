@@ -11,8 +11,7 @@ public:
 
     template <typename T>
     void display(const T& container);
-
-    void mergeInsertSortDeque(std::deque<int>& arr);
-
-    void mergeInsertSortList(std::list<int>& arr);
+    
+    template <typename T>
+    void mergeSort(T& arr);
 };
