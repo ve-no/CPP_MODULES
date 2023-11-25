@@ -30,7 +30,7 @@ PmergeMe::PmergeMe(int ac, char **av) {
     clock_t end2 = clock();
     double time2 = static_cast<double>(end2 - start2) / CLOCKS_PER_SEC * 1000;
 
-    std::cout << "After: ";
+    std::cout << " After: ";
     display(inputDeque);
     std::cout << "Time to process a range of " << inputDeque.size() << " elements with std::deque container: " << time1 << " us" << std::endl;
     std::cout << "Time to process a range of " << inputList.size() << " elements with std::list container: " << time2 << " us" << std::endl;
@@ -39,6 +39,17 @@ PmergeMe::PmergeMe(int ac, char **av) {
     else
         std::cout << "The sorted sequences are not equal." << std::endl;
 }
+
+PmergeMe::PmergeMe(const PmergeMe& other) { *this = other;}
+
+PmergeMe& PmergeMe::operator=(const PmergeMe& other) {
+    if (this == &other)
+        return *this;
+    return *this;
+}
+
+PmergeMe::~PmergeMe() { }
+
 
 template <typename T>
 void PmergeMe::display(const T& container) {
