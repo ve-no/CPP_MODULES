@@ -62,15 +62,16 @@ void PmergeMe::display(const T& container) {
 template <typename T>
 
 void PmergeMe::mergeSort(T& arr) {
-    typename T::iterator it1, it2, tempIt;
-    for (it1 = ++arr.begin(); it1 != arr.end(); ++it1) {
-        int temp = *it1;
-        it2 = it1;
-        tempIt = it2;
+    typename T::iterator it, tempIt;
+    int i = 0;
+    for (it = ++arr.begin(); it != arr.end(); ++it) {
+        int temp = *it;
+        tempIt = it;
+        i++;
         while (tempIt != arr.begin() && *(--tempIt) > temp) {
-            *it2 = *tempIt;
-            it2 = tempIt;
+            *it = *tempIt;
+            it = tempIt;
         }
-        *it2 = temp;
+        *it = temp;
     }
 }
