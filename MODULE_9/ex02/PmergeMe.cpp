@@ -34,10 +34,6 @@ PmergeMe::PmergeMe(int ac, char **av) {
     display(inputDeque);
     std::cout << "Time to process a range of " << inputDeque.size() << " elements with std::deque container: " << time1 << " us" << std::endl;
     std::cout << "Time to process a range of " << inputList.size() << " elements with std::list container: " << time2 << " us" << std::endl;
-    if (inputDeque == std::deque<int>(inputList.begin(), inputList.end()))
-        std::cout << "The sorted sequences are equal." << std::endl;
-    else
-        std::cout << "The sorted sequences are not equal." << std::endl;
 }
 
 PmergeMe::PmergeMe(const PmergeMe& other) { *this = other;}
