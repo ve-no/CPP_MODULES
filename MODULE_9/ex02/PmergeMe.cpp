@@ -63,11 +63,9 @@ template <typename T>
 
 void PmergeMe::mergeSort(T& arr) {
     typename T::iterator it, tempIt;
-    int i = 0;
     for (it = ++arr.begin(); it != arr.end(); ++it) {
         int temp = *it;
         tempIt = it;
-        i++;
         while (tempIt != arr.begin() && *(--tempIt) > temp) {
             *it = *tempIt;
             it = tempIt;
